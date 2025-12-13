@@ -1,0 +1,152 @@
+[
+  {
+    "id": "o1",
+    "dimension": "O",
+    "text": "I have a vivid imagination",
+    "reverse": false
+  },
+  {
+    "id": "o2",
+    "dimension": "O",
+    "text": "I prefer routine over variety",
+    "reverse": true
+  },
+  {
+    "id": "o3",
+    "dimension": "O",
+    "text": "I am interested in abstract ideas",
+    "reverse": false
+  },
+  {
+    "id": "o4",
+    "dimension": "O",
+    "text": "I enjoy exploring new concepts and theories",
+    "reverse": false
+  },
+  {
+    "id": "o5",
+    "dimension": "O",
+    "text": "I have little interest in art and culture",
+    "reverse": true
+  },
+  {
+    "id": "c1",
+    "dimension": "C",
+    "text": "I am always prepared and organized",
+    "reverse": false
+  },
+  {
+    "id": "c2",
+    "dimension": "C",
+    "text": "I often leave tasks unfinished",
+    "reverse": true
+  },
+  {
+    "id": "c3",
+    "dimension": "C",
+    "text": "I pay attention to details",
+    "reverse": false
+  },
+  {
+    "id": "c4",
+    "dimension": "C",
+    "text": "I make plans and stick to them",
+    "reverse": false
+  },
+  {
+    "id": "c5",
+    "dimension": "C",
+    "text": "I often make a mess and rarely clean up",
+    "reverse": true
+  },
+  {
+    "id": "e1",
+    "dimension": "E",
+    "text": "I feel comfortable around people",
+    "reverse": false
+  },
+  {
+    "id": "e2",
+    "dimension": "E",
+    "text": "I prefer to be alone rather than with others",
+    "reverse": true
+  },
+  {
+    "id": "e3",
+    "dimension": "E",
+    "text": "I am the life of the party",
+    "reverse": false
+  },
+  {
+    "id": "e4",
+    "dimension": "E",
+    "text": "I enjoy being the center of attention",
+    "reverse": false
+  },
+  {
+    "id": "e5",
+    "dimension": "E",
+    "text": "I find it difficult to approach others",
+    "reverse": true
+  },
+  {
+    "id": "a1",
+    "dimension": "A",
+    "text": "I am interested in other people's feelings",
+    "reverse": false
+  },
+  {
+    "id": "a2",
+    "dimension": "A",
+    "text": "I am not really interested in others' problems",
+    "reverse": true
+  },
+  {
+    "id": "a3",
+    "dimension": "A",
+    "text": "I take time out for others",
+    "reverse": false
+  },
+  {
+    "id": "a4",
+    "dimension": "A",
+    "text": "I trust people easily",
+    "reverse": false
+  },
+  {
+    "id": "a5",
+    "dimension": "A",
+    "text": "I tend to find fault in others",
+    "reverse": true
+  },
+  {
+    "id": "n1",
+    "dimension": "N",
+    "text": "I often feel anxious or worried",
+    "reverse": false
+  },
+  {
+    "id": "n2",
+    "dimension": "N",
+    "text": "I am relaxed most of the time",
+    "reverse": true
+  },
+  {
+    "id": "n3",
+    "dimension": "N",
+    "text": "I get stressed out easily",
+    "reverse": false
+  },
+  {
+    "id": "n4",
+    "dimension": "N",
+    "text": "I experience frequent mood swings",
+    "reverse": false
+  },
+  {
+    "id": "n5",
+    "dimension": "N",
+    "text": "I remain calm under pressure",
+    "reverse": true
+  }
+]
