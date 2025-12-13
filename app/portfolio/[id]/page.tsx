@@ -25,7 +25,7 @@ export default function PortfolioPage() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const loadPortfolio = () => {
+    const loadPortfolio = async () => {
       try {
         // First, try to load from localStorage
         const stored = getPortfolio(id);
@@ -58,7 +58,28 @@ export default function PortfolioPage() {
           }
         }
 
-        // Portfolio not found in localStorage or URL
+        // Check if this is an example portfolio (developer, designer, pm)
+        const exampleIds = ['developer', 'designer', 'pm'];
+        if (exampleIds.includes(id)) {
+          try {
+            const response = await fetch(`/examples/${id}.json`);
+            if (response.ok) {
+              const portfolioData = await response.json() as ProfessionalDNA;
+
+              // Save to localStorage for future visits
+              savePortfolio(id, portfolioData);
+
+              setPortfolio(portfolioData);
+              setLoading(false);
+              return;
+            }
+          } catch (fetchError) {
+            console.error('Error loading example portfolio:', fetchError);
+            // Continue to error state below
+          }
+        }
+
+        // Portfolio not found in localStorage, URL, or examples
         setError('Portfolio not found');
         setLoading(false);
       } catch (err) {
