@@ -4,6 +4,8 @@ import { generatePortfolio } from '@/lib/claude';
 import { calculateBigFiveScores } from '@/lib/bigfive-scorer';
 import { FormData } from '@/types/portfolio';
 
+export const runtime = 'nodejs';
+
 export async function POST(request: Request) {
   try {
     // Parse request body
@@ -38,13 +40,16 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Error generating portfolio:', error);
 
-    // Return error response
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    const status =
+      /Missing ANTHROPIC_API_KEY/i.test(message) ? 500 :
+      /credits are exhausted/i.test(message) ? 402 :
+      /invalid json/i.test(message) ? 502 :
+      500;
+
     return NextResponse.json(
-      {
-        error: 'Failed to generate portfolio',
-        message: error instanceof Error ? error.message : 'Unknown error',
-      },
-      { status: 500 }
+      { error: 'Failed to generate portfolio', message },
+      { status }
     );
   }
 }

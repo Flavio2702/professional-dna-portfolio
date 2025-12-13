@@ -1,44 +1,85 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { ProfessionalDNA, FormData, BigFiveScores } from '@/types/portfolio';
+import { BigFiveScores, FormData, ProfessionalDNA } from '@/types/portfolio';
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+function requireEnv(name: string): string {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`Missing ${name} (set it in .env.local or environment variables).`);
+  }
+  return value;
+}
+
+function getAnthropicClient(): Anthropic {
+  return new Anthropic({ apiKey: requireEnv('ANTHROPIC_API_KEY') });
+}
+
+function getModelCandidates(): string[] {
+  const candidates = [
+    process.env.ANTHROPIC_MODEL,
+    'claude-sonnet-4-20250514',
+    'claude-3-5-sonnet-20241022',
+  ].filter(Boolean) as string[];
+
+  return Array.from(new Set(candidates));
+}
+
+function isLikelyModelError(error: unknown): boolean {
+  const status = (error as any)?.status ?? (error as any)?.statusCode;
+  const message = String((error as any)?.message ?? error);
+  return (
+    status === 404 ||
+    status === 400 ||
+    (/model/i.test(message) && /not found|unknown|invalid/i.test(message))
+  );
+}
+
+function isInsufficientCreditError(error: unknown): boolean {
+  const message = String((error as any)?.message ?? error).toLowerCase();
+  return (
+    message.includes('credit balance') ||
+    message.includes('insufficient funds') ||
+    message.includes('not enough credits')
+  );
+}
 
 export async function generatePortfolio(
   formData: FormData,
   bigFiveScores: BigFiveScores
 ): Promise<ProfessionalDNA> {
   const prompt = buildPrompt(formData, bigFiveScores);
+  const anthropic = getAnthropicClient();
 
-  try {
-    const message = await anthropic.messages.create({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 4096,
-      messages: [
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
-    });
+  let lastError: unknown;
+  for (const model of getModelCandidates()) {
+    try {
+      const message = await anthropic.messages.create({
+        model,
+        max_tokens: 4096,
+        temperature: 0.2,
+        messages: [{ role: 'user', content: prompt }],
+      });
 
-    // Extract text from response
-    const responseText = message.content[0].type === 'text'
-      ? message.content[0].text
-      : '';
+      const responseText = message.content
+        .filter((block) => block.type === 'text')
+        .map((block) => block.text)
+        .join('\n')
+        .trim();
 
-    if (!responseText) {
-      throw new Error('No response from Claude');
+      if (!responseText) throw new Error('No text response from Claude.');
+      return parsePortfolioJSON(responseText);
+    } catch (error) {
+      if (isInsufficientCreditError(error)) {
+        throw new Error(
+          'Anthropic API credits are exhausted. Visit Plans & Billing to top up your balance.'
+        );
+      }
+      lastError = error;
+      if (!isLikelyModelError(error)) throw error;
     }
-
-    // Parse JSON from response
-    const portfolio = parsePortfolioJSON(responseText);
-    return portfolio;
-  } catch (error) {
-    console.error('Error generating portfolio:', error);
-    throw new Error(`Failed to generate portfolio: ${error}`);
   }
+
+  const message = lastError instanceof Error ? lastError.message : String(lastError);
+  throw new Error(message || 'Claude request failed.');
 }
 
 function buildPrompt(formData: FormData, bigFiveScores: BigFiveScores): string {
@@ -59,60 +100,39 @@ Case Studies:
 ${projects.caseStudies}
 
 ## Philosophy
-**Problem-Solving Approach:** ${philosophy.problemSolving}
-
-**Significant Failure:** ${philosophy.failure}
-
-**What I Love:** ${philosophy.love}
-
-**What I Struggle With:** ${philosophy.hate}
-
-**Ideal Work Style:** ${philosophy.workStyle}
+Problem-Solving Approach: ${philosophy.problemSolving}
+Significant Failure: ${philosophy.failure}
+What I Love: ${philosophy.love}
+What I Struggle With: ${philosophy.hate}
+Ideal Work Style: ${philosophy.workStyle}
 
 ## Big Five Personality Scores (0-100 scale)
-- Openness: ${bigFiveScores.O}
-- Conscientiousness: ${bigFiveScores.C}
-- Extraversion: ${bigFiveScores.E}
-- Agreeableness: ${bigFiveScores.A}
-- Neuroticism: ${bigFiveScores.N}
+Openness: ${bigFiveScores.O}
+Conscientiousness: ${bigFiveScores.C}
+Extraversion: ${bigFiveScores.E}
+Agreeableness: ${bigFiveScores.A}
+Neuroticism: ${bigFiveScores.N}
 
-# YOUR TASK
+# OUTPUT RULES
+- Return ONLY valid JSON (no markdown, no code fences, no commentary).
+- Use first-person voice ("I...").
+- Be evidence-based and radically honest.
+- Do not include numeric claims in prose (avoid percentages, team sizes, etc).
+- For gene.dominance use exactly: "Dominant", "Active", or "Developing".
 
-Generate a complete Professional DNA Portfolio in JSON format. This is an ANTI-PORTFOLIO - radical honesty over self-promotion.
-
-# CRITICAL RULES
-
-1. **NO NUMBERS in prose** - Never write "improved by 40%" or "led team of 5". Use qualitative descriptions.
-2. **First person voice** - "I solve problems by..." not "They solve problems by..."
-3. **Evidence-based** - Every trait needs concrete evidence from the input data
-4. **Radical honesty** - Include weaknesses, struggles, and developing areas
-5. **Map Big Five to behaviors:**
-   - Score >=70: Dominant trait (naturally excel) - use fire emoji
-   - Score 40-69: Active trait (capable) - use lightning emoji
-   - Score <40: Developing trait (growing) - use lightbulb emoji
-
-6. **DNA Metaphor throughout** - Use genetic/biological language creatively
-
-# JSON STRUCTURE
-
-Generate a valid JSON object with this exact structure:
-
+# JSON SCHEMA (return this exact shape)
 {
   "metadata": {
-    "name": "string (extract from CV)",
-    "title": "string (current role)",
-    "sequencedFrom": {
-      "projects": number,
-      "skills": number,
-      "experiences": number
-    },
-    "rarityScore": number (1-100, how unique this combo is),
+    "name": "string",
+    "title": "string",
+    "sequencedFrom": { "projects": 0, "skills": 0, "experiences": 0 },
+    "rarityScore": 0,
     "lastUpdated": "ISO date string"
   },
   "genomeOverview": {
-    "tagline": "One punchy sentence capturing their essence",
-    "dominantTraits": ["trait1", "trait2", "trait3"],
-    "dnaSequence": "Creative code like 'ATCG-PROB-SOLV-EMPTH-LEARN'"
+    "tagline": "string",
+    "dominantTraits": ["string"],
+    "dnaSequence": "string"
   },
   "chromosomes": [
     {
@@ -120,149 +140,87 @@ Generate a valid JSON object with this exact structure:
       "name": "Technical DNA",
       "genes": [
         {
-          "name": "Gene name (e.g., 'Systems Thinking')",
-          "dominance": "🔥 Dominant" | "⚡ Active" | "💡 Developing",
-          "basis": "Which Big Five trait or evidence this comes from",
-          "expression": "First person: how this shows up in their work",
-          "evidence": ["specific example from CV/projects", "another example"]
+          "name": "string",
+          "dominance": "Dominant",
+          "basis": "string or null",
+          "expression": "string",
+          "evidence": ["string"]
         }
-      ]
-    },
-    {
-      "id": "behavioral-dna",
-      "name": "Behavioral DNA",
-      "genes": [
-        // Map Big Five scores to behavioral genes
-        // High O -> "Intellectual Curiosity", "Creative Problem-Solving"
-        // High C -> "Systematic Execution", "Detail Orientation"
-        // High E -> "Collaborative Energy", "External Processing"
-        // High A -> "Empathetic Design", "Consensus Building"
-        // Low N -> "Stress Resilience", "Emotional Stability"
       ]
     }
   ],
   "mutations": [
     {
-      "year": number,
-      "title": "Pivot point title",
-      "description": "What happened",
-      "mutation": "What changed in their DNA",
-      "newTrait": "New capability unlocked",
-      "evidence": ["proof from their story"]
+      "year": 0,
+      "title": "string",
+      "description": "string",
+      "mutation": "string",
+      "newTrait": "string",
+      "evidence": ["string"]
     }
-    // Include 2-3 major career pivot points
   ],
   "projects": [
     {
-      "geneId": "which gene this proves",
-      "title": "Project name",
-      "context": "The problem/situation",
-      "approach": ["step 1", "step 2", "step 3"],
-      "outcome": {
-        "metric": "Qualitative outcome (no numbers!)",
-        "secondary": "Additional impact"
-      },
-      "proof": {
-        "liveLink": "URL if provided",
-        "testimonial": {
-          "quote": "Extract if available",
-          "author": "Person name"
-        }
-      },
-      "insight": "What this reveals about how they work"
+      "geneId": "string",
+      "title": "string",
+      "context": "string",
+      "approach": ["string"],
+      "outcome": { "metric": "string", "secondary": "string" },
+      "proof": { "liveLink": "string", "testimonial": { "quote": "string", "author": "string" } },
+      "insight": "string"
     }
-    // Extract 3-4 best projects from case studies
   ],
   "uniqueSequence": {
-    "combinations": [
-      "Rare combo 1: X + Y",
-      "Rare combo 2: A + B"
-    ],
-    "statement": "Why this combination is powerful/unique",
-    "whyRare": ["reason 1", "reason 2"],
-    "evidence": ["proof from their work"]
+    "combinations": ["string"],
+    "statement": "string",
+    "whyRare": ["string"],
+    "evidence": ["string"]
   },
   "compatibility": {
-    "excel": [
-      {
-        "name": "Environment/role type",
-        "basis": "Which dominant gene drives this",
-        "inPractice": "How this shows up",
-        "bestApplied": "Ideal context"
-      }
-    ],
-    "capable": [
-      {
-        "name": "Environment/role type",
-        "basis": "Which active gene supports this",
-        "inPractice": "How this shows up",
-        "bestApplied": "When to use this"
-      }
-    ],
-    "developing": [
-      {
-        "name": "Area of growth",
-        "basis": "What's being developed",
-        "myApproach": "How they're working on it",
-        "growth": "Progress so far"
-      }
-    ],
-    "thrivingEnvironments": [
-      {
-        "title": "Environment type",
-        "why": "Why this energizes them (cite philosophy input)"
-      }
-    ],
-    "strugglingEnvironments": [
-      {
-        "title": "Environment type",
-        "why": "Why this drains them (cite 'hate' input)"
-      }
-    ],
-    "idealHabitat": "One paragraph describing their perfect work environment"
+    "excel": [{ "name": "string", "basis": "string", "inPractice": "string", "bestApplied": "string" }],
+    "capable": [{ "name": "string", "basis": "string", "inPractice": "string", "bestApplied": "string" }],
+    "developing": [{ "name": "string", "basis": "string", "myApproach": "string", "growth": "string" }],
+    "thrivingEnvironments": [{ "title": "string", "why": "string" }],
+    "strugglingEnvironments": [{ "title": "string", "why": "string" }],
+    "idealHabitat": "string"
   }
 }
 
-# IMPORTANT
-- Return ONLY valid JSON, no markdown formatting, no explanation text
-- Use exact field names as specified
-- Ensure all arrays have at least 1 item
-- Be specific and evidence-based
-- Remember: radical honesty, first person, no numbers in prose
-
-Generate the complete JSON now:`;
+Return the JSON now.`;
 }
 
 function parsePortfolioJSON(responseText: string): ProfessionalDNA {
-  try {
-    // Remove markdown code blocks if present
-    let jsonText = responseText.trim();
+  const stripCodeFences = (text: string) => {
+    let t = text.trim();
+    if (t.startsWith('```json')) t = t.slice(7);
+    else if (t.startsWith('```')) t = t.slice(3);
+    if (t.endsWith('```')) t = t.slice(0, -3);
+    return t.trim();
+  };
 
-    // Remove ```json and ``` if present
-    if (jsonText.startsWith('```json')) {
-      jsonText = jsonText.slice(7);
-    } else if (jsonText.startsWith('```')) {
-      jsonText = jsonText.slice(3);
-    }
+  const cleaned = stripCodeFences(responseText);
+  const attempts: string[] = [cleaned];
 
-    if (jsonText.endsWith('```')) {
-      jsonText = jsonText.slice(0, -3);
-    }
-
-    jsonText = jsonText.trim();
-
-    // Parse JSON
-    const portfolio = JSON.parse(jsonText) as ProfessionalDNA;
-
-    // Validate required fields
-    if (!portfolio.metadata || !portfolio.genomeOverview || !portfolio.chromosomes) {
-      throw new Error('Missing required fields in portfolio JSON');
-    }
-
-    return portfolio;
-  } catch (error) {
-    console.error('Failed to parse portfolio JSON:', error);
-    console.error('Response text:', responseText);
-    throw new Error(`Invalid JSON response from Claude: ${error}`);
+  const firstBrace = cleaned.indexOf('{');
+  const lastBrace = cleaned.lastIndexOf('}');
+  if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+    attempts.push(cleaned.slice(firstBrace, lastBrace + 1));
   }
+
+  let lastError: unknown;
+  for (const attempt of attempts) {
+    try {
+      const parsed = JSON.parse(attempt) as ProfessionalDNA;
+      if (!parsed?.metadata || !parsed?.genomeOverview || !parsed?.chromosomes) {
+        throw new Error('Missing required fields in portfolio JSON.');
+      }
+      return parsed;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  console.error('Failed to parse portfolio JSON:', lastError);
+  console.error('Claude response (first 800 chars):', responseText.slice(0, 800));
+  throw new Error('Claude returned invalid JSON.');
 }

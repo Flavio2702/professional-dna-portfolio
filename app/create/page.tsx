@@ -10,6 +10,7 @@ import { ProjectsTab } from '@/components/form/ProjectsTab';
 import { PhilosophyTab } from '@/components/form/PhilosophyTab';
 import { BigFiveTab } from '@/components/form/BigFiveTab';
 import { FormData } from '@/types/portfolio';
+import { savePortfolio } from '@/lib/storage';
 
 export default function CreatePage() {
   const router = useRouter();
@@ -57,14 +58,28 @@ export default function CreatePage() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to generate portfolio');
+        let serverMessage = `HTTP ${response.status}`;
+        try {
+          const err = await response.json();
+          if (err?.message) serverMessage = err.message as string;
+          else if (err?.error) serverMessage = err.error as string;
+        } catch {
+          // Ignore JSON parse errors
+        }
+        throw new Error(serverMessage);
       }
 
       const data = await response.json();
+      if (data?.id && data?.data) {
+        savePortfolio(data.id, data.data);
+      }
       router.push(`/portfolio/${data.id}`);
+      setIsGenerating(false);
     } catch (error) {
       console.error('Error generating portfolio:', error);
-      alert('Failed to generate portfolio. Please try again.');
+      const message =
+        error instanceof Error ? error.message : 'Failed to generate portfolio. Please try again.';
+      alert(message);
       setIsGenerating(false);
     }
   };

@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Professional DNA Anti-Portfolio 🚀
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)](https://nextjs.org) [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8?logo=tailwind-css&logoColor=white)](https://tailwindcss.com) [![Status](https://img.shields.io/badge/Status-Phase%206%20Complete-brightgreen)](PROJECT_STATUS.md)
 
-First, run the development server:
+## 🧬 Descrizione progetto
+Professional DNA e' un anti-portfolio AI-native che racconta le persone come sistemi complessi invece che come liste di skill. L'interfaccia raccoglie CV, progetti, filosofia di lavoro e firma Big Five per generare - tramite Claude Sonnet 4 - una narrazione radicalmente onesta composta da Genome Overview, Chromosome Map, Mutation Timeline e sezioni focalizzate sull'impatto reale. L'obiettivo e' offrire ai talent team uno strumento affidabile per valutare compatibilita', trade-off e contesti ideali prima ancora del primo colloquio.
 
+## ✨ Features principali
+- Landing page con hero, galleria esempi, feature grid e "How it works".
+- Form a 4 tab (CV, Projects, Philosophy, Big Five) con validazioni e storage locale.
+- API route `app/api/generate/route.ts` per orchestrare le chiamate a Claude Sonnet 4.
+- Portfolio viewer `/portfolio/[id]` con stato di caricamento/errore, pulsante download e layout a 6 sezioni.
+- Tre dataset di esempio completi (`developer`, `designer`, `pm`) per demo offline.
+- DNA metaphor system con Compatibility Matrix, Gene Expression e Unique Sequence.
+
+## ⚡ Quick start guide
+
+### Prerequisiti
+- Node.js 20+
+- npm (o pnpm/bun/yarn) installato globalmente
+- Chiave `ANTHROPIC_API_KEY` salvata in `.env.local`
+
+### Installazione
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Uso
+```bash
+npm run dev
+# Naviga su http://localhost:3000
+# /create  -> compila il form
+# /portfolio/[id] -> visualizza o condividi l'anti-portfolio
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Per build di produzione:
+```bash
+npm run build && npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📚 Example portfolios
+- [Developer](http://localhost:3000/portfolio/developer)
+- [Product Designer](http://localhost:3000/portfolio/designer)
+- [Product Manager](http://localhost:3000/portfolio/pm)
 
-## Learn More
+> Suggerimento: apri prima il JSON corrispondente in `data/examples/` per capire struttura e nomenclatura.
 
-To learn more about Next.js, take a look at the following resources:
+## 🧱 Tech stack
+- **Framework**: Next.js 14 (App Router)
+- **UI**: Tailwind CSS + shadcn/ui
+- **AI**: Claude Sonnet 4 (Anthropic API)
+- **State/Storage**: Browser `localStorage`, URL params per shareability
+- **Deployment target**: Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏁 Hackathon deliverables checklist
+- [x] ✅ Phase 5 portfolio sections complete (6 DNA componenti)
+- [x] ✅ Landing page + navigazione interna
+- [x] ✅ Tre JSON di esempio + rendering verificato
+- [x] ✅ FRAMEWORK.md (documentazione architettura)
+- [ ] ⏳ README finale + video demo per submission
+- [ ] ⏳ Deploy pubblico su Vercel
+- [ ] ⏳ Analytics / error boundaries opzionali
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Stato dettagliato e prossimo sprint in `PROJECT_STATUS.md`.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+MIT License - aggiungere il file `LICENSE` se non e' ancora presente nel repository.
