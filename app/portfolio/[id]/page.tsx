@@ -23,6 +23,7 @@ export default function PortfolioPage() {
   const [error, setError] = useState<string | null>(null);
 
   const contentRef = useRef<HTMLDivElement>(null);
+  const exportCssRef = useRef<string | null>(null); // Cache compiled CSS for inline export
 
   useEffect(() => {
     const loadPortfolio = async () => {
@@ -92,43 +93,29 @@ export default function PortfolioPage() {
     loadPortfolio();
   }, [id, searchParams]);
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!contentRef.current || !portfolio) return;
 
     try {
+      if (!exportCssRef.current) {
+        const cssResponse = await fetch('/export.css');
+        if (!cssResponse.ok) {
+          throw new Error('Failed to load export stylesheet');
+        }
+        exportCssRef.current = await cssResponse.text();
+      }
+
+      const inlineCss = exportCssRef.current ?? '';
       // Get the HTML content
       const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${portfolio.metadata.name} - Professional DNA Portfolio</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #fafafa;
-    }
-    .section {
-      margin-bottom: 40px;
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    h1, h2, h3 { color: #1a1a1a; }
-    .badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 4px;
-      background: #e5e7eb;
-      font-size: 0.875rem;
-      margin: 4px;
-    }
+  <style id="exported-css">
+${inlineCss}
   </style>
 </head>
 <body>

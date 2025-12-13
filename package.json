@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:export-css": "node ./scripts/build-export-css.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",

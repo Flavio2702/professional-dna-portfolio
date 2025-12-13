@@ -9,7 +9,7 @@ Professional DNA e' un anti-portfolio AI-native che racconta le persone come sis
 - Landing page con hero, galleria esempi, feature grid e "How it works".
 - Form a 4 tab (CV, Projects, Philosophy, Big Five) con validazioni e storage locale.
 - API route `app/api/generate/route.ts` per orchestrare le chiamate a Claude Sonnet 4.
-- Portfolio viewer `/portfolio/[id]` con stato di caricamento/errore, pulsante download e layout a 6 sezioni.
+- Portfolio viewer `/portfolio/[id]` con stato di caricamento/errore, pulsante download e layout a 6 sezioni (export HTML standalone con CSS inline).
 - Tre dataset di esempio completi (`developer`, `designer`, `pm`) per demo offline.
 - DNA metaphor system con Compatibility Matrix, Gene Expression e Unique Sequence.
 
@@ -28,6 +28,7 @@ npm install
 ### Uso
 ```bash
 npm run dev
+# (opzionale) npm run build:export-css per rigenerare il CSS usato nell'export HTML
 # Naviga su http://localhost:3000
 # /create  -> compila il form
 # /portfolio/[id] -> visualizza o condividi l'anti-portfolio
@@ -57,6 +58,7 @@ npm run build && npm run start
 - [x] ✅ Landing page + navigazione interna
 - [x] ✅ Tre JSON di esempio + rendering verificato
 - [x] ✅ FRAMEWORK.md (documentazione architettura)
+- [x] ✅ Export HTML con CSS inline offline-ready
 - [ ] ⏳ README finale + video demo per submission
 - [ ] ⏳ Deploy pubblico su Vercel
 - [ ] ⏳ Analytics / error boundaries opzionali
