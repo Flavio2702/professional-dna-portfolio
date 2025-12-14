@@ -17,7 +17,7 @@ export function Section3_MutationTimeline({ data }: Section3Props) {
           MUTATION TIMELINE
         </h2>
         <p className="text-muted-foreground text-lg">
-          Evolutionary pivot points that rewired my DNA
+          Le svolte che hanno mutato il mio DNA: esperimenti, scosse e ciò che è rimasto inciso.
         </p>
       </div>
 

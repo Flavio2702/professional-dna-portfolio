@@ -16,7 +16,7 @@ export function Section5_UniqueSequence({ data }: Section5Props) {
           MY UNREPLICABLE COMBINATION
         </h2>
         <p className="text-muted-foreground text-lg">
-          The genetic mashup that makes me different
+          Le combinazioni rare che rendono il mio profilo difficile da replicare altrove.
         </p>
       </div>
 

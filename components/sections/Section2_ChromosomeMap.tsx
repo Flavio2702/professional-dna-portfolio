@@ -36,7 +36,7 @@ export function Section2_ChromosomeMap({ data }: Section2Props) {
           CHROMOSOME MAP
         </h2>
         <p className="text-muted-foreground text-lg">
-          The genetic code that drives my professional behavior
+          Spacchetto i geni dominanti e quelli in crescita per mostrare come prende forma il mio modo di lavorare.
         </p>
       </div>
 

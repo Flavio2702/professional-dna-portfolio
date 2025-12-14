@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
@@ -130,13 +131,18 @@ export default function CreatePage() {
 
   return (
     <div className="container max-w-4xl py-8">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">
-          Create Your Professional DNA Portfolio
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Answer a few questions to generate your unique anti-portfolio
-        </p>
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-4xl font-bold mb-2">
+            Create Your Professional DNA Portfolio
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Answer a few questions to generate your unique anti-portfolio
+          </p>
+        </div>
+        <Button asChild variant="outline">
+          <Link href="/">← Back to home</Link>
+        </Button>
       </div>
 
       <Card className="mb-6">

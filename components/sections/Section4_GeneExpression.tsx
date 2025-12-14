@@ -27,7 +27,7 @@ export function Section4_GeneExpression({ data }: Section4Props) {
           GENE EXPRESSION IN ACTION
         </h2>
         <p className="text-muted-foreground text-lg">
-          How my genes manifest in real-world projects
+          Progetti concreti che mostrano come ogni gene prende vita in situazioni reali.
         </p>
       </div>
 

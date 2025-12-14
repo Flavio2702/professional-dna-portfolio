@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="container flex flex-col items-center justify-center min-h-screen py-12 text-center">
+      <section className="container flex flex-col items-center justify-center py-24 text-center">
         <div className="max-w-3xl space-y-8">
           {/* Emoji */}
           <div className="text-8xl animate-pulse">🧬</div>
@@ -34,113 +34,6 @@ export default function HomePage() {
             <Button asChild size="lg" variant="outline" className="text-lg px-8">
               <Link href="#examples">Learn More</Link>
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Examples Gallery */}
-      <section id="examples" className="container py-24 bg-muted/30">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl font-bold">See Examples</h2>
-            <p className="text-xl text-muted-foreground">
-              Explore real Professional DNA portfolios across different roles
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Developer Example */}
-            <Link href="/portfolio/developer" className="group">
-              <Card className="h-full transition-all hover:shadow-lg hover:scale-[1.02]">
-                <CardHeader>
-                  <div className="text-4xl mb-2">💻</div>
-                  <CardTitle className="group-hover:text-primary transition-colors">
-                    Alex Chen
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Frontend Engineer
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground italic">
-                    &quot;I build interfaces that load in milliseconds and scale to millions, preferably while no one&apos;s watching.&quot;
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      Performance
-                    </span>
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      TypeScript
-                    </span>
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      Remote-First
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-
-            {/* Designer Example */}
-            <Link href="/portfolio/designer" className="group">
-              <Card className="h-full transition-all hover:shadow-lg hover:scale-[1.02]">
-                <CardHeader>
-                  <div className="text-4xl mb-2">🎨</div>
-                  <CardTitle className="group-hover:text-primary transition-colors">
-                    Maya Patel
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    UX Designer
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground italic">
-                    &quot;I talk to users like a therapist, prototype like a developer, and advocate like a lawyer.&quot;
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      User Research
-                    </span>
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      Prototyping
-                    </span>
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      Collaboration
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-
-            {/* PM Example */}
-            <Link href="/portfolio/pm" className="group">
-              <Card className="h-full transition-all hover:shadow-lg hover:scale-[1.02]">
-                <CardHeader>
-                  <div className="text-4xl mb-2">📊</div>
-                  <CardTitle className="group-hover:text-primary transition-colors">
-                    Jordan Rivera
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Product Manager
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground italic">
-                    &quot;I translate user pain into engineering priorities, business metrics into product strategy, and chaos into roadmaps.&quot;
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      Strategy
-                    </span>
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      Data-Driven
-                    </span>
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                      Cross-Functional
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
           </div>
         </div>
       </section>
@@ -276,6 +169,114 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Examples Gallery */}
+      <section id="examples" className="container py-24 bg-muted/30">
+        <div className="max-w-6xl mx-auto space-y-12">
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold">See Examples</h2>
+            <p className="text-xl text-muted-foreground">
+              Explore real Professional DNA portfolios across different roles
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Developer Example */}
+            <Link href="/portfolio/developer" className="group">
+              <Card className="h-full transition-all hover:shadow-lg hover:scale-[1.02]">
+                <CardHeader>
+                  <div className="text-4xl mb-2">💻</div>
+                  <CardTitle className="group-hover:text-primary transition-colors">
+                    Alex Chen
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    Frontend Engineer
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground italic">
+                    &quot;I build interfaces that load in milliseconds and scale to millions, preferably while no one&apos;s watching.&quot;
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      Performance
+                    </span>
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      TypeScript
+                    </span>
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      Remote-First
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* Designer Example */}
+            <Link href="/portfolio/designer" className="group">
+              <Card className="h-full transition-all hover:shadow-lg hover:scale-[1.02]">
+                <CardHeader>
+                  <div className="text-4xl mb-2">🎨</div>
+                  <CardTitle className="group-hover:text-primary transition-colors">
+                    Maya Patel
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    UX Designer
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground italic">
+                    &quot;I talk to users like a therapist, prototype like a developer, and advocate like a lawyer.&quot;
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      User Research
+                    </span>
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      Prototyping
+                    </span>
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      Collaboration
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* PM Example */}
+            <Link href="/portfolio/pm" className="group">
+              <Card className="h-full transition-all hover:shadow-lg hover:scale-[1.02]">
+                <CardHeader>
+                  <div className="text-4xl mb-2">📊</div>
+                  <CardTitle className="group-hover:text-primary transition-colors">
+                    Jordan Rivera
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    Product Manager
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground italic">
+                    &quot;I translate user pain into engineering priorities, business metrics into product strategy, and chaos into roadmaps.&quot;
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      Strategy
+                    </span>
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      Data-Driven
+                    </span>
+                    <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                      Cross-Functional
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
 
       {/* Footer */}
       <footer className="border-t py-12">

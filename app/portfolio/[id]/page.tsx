@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import Link from 'next/link';
 import { useParams, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { getPortfolio, savePortfolio } from '@/lib/storage';
 import { ProfessionalDNA } from '@/types/portfolio';
+import { Section0_HowToReadDNA } from '@/components/sections/Section0_HowToReadDNA';
 import { Section1_GenomeOverview } from '@/components/sections/Section1_GenomeOverview';
 import { Section2_ChromosomeMap } from '@/components/sections/Section2_ChromosomeMap';
 import { Section3_MutationTimeline } from '@/components/sections/Section3_MutationTimeline';
@@ -198,14 +200,23 @@ ${inlineCss}
               {portfolio.metadata.title}
             </span>
           </div>
-          <Button onClick={handleDownload} variant="outline">
-            Download Portfolio
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/">← Home</Link>
+            </Button>
+            <Button onClick={handleDownload} variant="outline">
+              Download Portfolio
+            </Button>
+          </div>
         </div>
       </header>
 
       {/* Portfolio Content */}
       <main ref={contentRef} className="container py-8 space-y-16">
+        <section id="how-to-read-dna">
+          <Section0_HowToReadDNA />
+        </section>
+
         {/* Section 1: Genome Overview */}
         <section id="genome-overview">
           <Section1_GenomeOverview data={portfolio} />

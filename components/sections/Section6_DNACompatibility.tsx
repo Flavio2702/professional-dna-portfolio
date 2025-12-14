@@ -16,7 +16,7 @@ export function Section6_DNACompatibility({ data }: Section6Props) {
           BEHAVIORAL DNA PROFILE
         </h2>
         <p className="text-muted-foreground text-lg">
-          Where my genetic makeup drives results
+          Contesti dove il mio DNA prolifera (e dove fatica), così capisci subito se è un match.
         </p>
       </div>
 

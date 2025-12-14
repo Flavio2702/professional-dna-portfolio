@@ -11,6 +11,15 @@ export function Section1_GenomeOverview({ data }: Section1Props) {
 
   return (
     <div className="space-y-6">
+      <div className="text-center space-y-1">
+        <h2 className="text-4xl font-bold tracking-tight">
+          GENOME OVERVIEW
+        </h2>
+        <p className="text-muted-foreground text-lg">
+          Prima fotografia del mio DNA professionale: cosa porto davvero sul tavolo e perché questa combinazione funziona.
+        </p>
+      </div>
+
       {/* ASCII DNA Helix */}
       <Card className="border-2 border-primary">
         <CardContent className="pt-6">
