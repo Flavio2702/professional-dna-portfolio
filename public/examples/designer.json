@@ -8,7 +8,8 @@
       "experiences": 8
     },
     "rarityScore": 82,
-    "lastUpdated": "2025-12-13"
+    "lastUpdated": "2025-12-13",
+    "assessmentConfidence": "high"
   },
   "genomeOverview": {
     "tagline": "I talk to users like a therapist, prototype like a developer, and advocate like a lawyer.",
@@ -49,7 +50,7 @@
         },
         {
           "name": "Design Systems",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Conscientiousness: 68/100 + Openness: 87/100",
           "expression": "I love the creative challenge of designing systems, not just screens. Tokens, components, patterns - building Lego blocks that empower teams to move fast.",
           "evidence": [
@@ -60,7 +61,7 @@
         },
         {
           "name": "Interaction Design",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Openness: 87/100 + Agreeableness: 76/100",
           "expression": "Micro-interactions are my love language. Loading states, empty states, error states - the details that make software feel alive and human.",
           "evidence": [
@@ -99,7 +100,7 @@
         },
         {
           "name": "Creative Exploration",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Openness: 87/100",
           "expression": "I explore 10 ideas to find 1 great one. Diverge wildly, then converge ruthlessly. My Figma files have 50+ abandoned concepts per shipped feature.",
           "evidence": [
@@ -110,7 +111,7 @@
         },
         {
           "name": "Feedback Integration",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Agreeableness: 76/100 + Openness: 87/100",
           "expression": "I genuinely love critique. 'This doesn't work' is a gift. Show me where it breaks, tell me why it's confusing, help me make it better.",
           "evidence": [
@@ -125,9 +126,9 @@
   "mutations": [
     {
       "year": 2018,
-      "title": "Graphic Designer ’ UX Designer",
+      "title": "Graphic Designer ï¿½ UX Designer",
       "description": "Moved from making things pretty to making things work. Discovered research and fell in love with user psychology.",
-      "mutation": "Aesthetics-first ’ Users-first",
+      "mutation": "Aesthetics-first ï¿½ Users-first",
       "newTrait": "Started asking 'Why does this need to exist?' before 'What color should this be?'",
       "evidence": [
         "First user interview: discovered beautiful design solved wrong problem",
@@ -137,9 +138,9 @@
     },
     {
       "year": 2021,
-      "title": "Solo Contributor ’ Design Lead",
+      "title": "Solo Contributor ï¿½ Design Lead",
       "description": "Promoted to lead team of 4 designers. Learned to multiply impact through others instead of doing everything myself.",
-      "mutation": "Individual craft ’ Team enablement",
+      "mutation": "Individual craft ï¿½ Team enablement",
       "newTrait": "Realized my best work is helping others do their best work",
       "evidence": [
         "Mentored 4 junior designers; 2 promoted within 18 months",
@@ -149,9 +150,9 @@
     },
     {
       "year": 2023,
-      "title": "Feature Factory ’ Research-Driven",
+      "title": "Feature Factory ï¿½ Research-Driven",
       "description": "Joined company that ships features based on user research, not HiPPO opinions. Finally felt empowered to say no.",
-      "mutation": "Order-taker ’ Strategic partner",
+      "mutation": "Order-taker ï¿½ Strategic partner",
       "newTrait": "Earned seat at strategy table by bringing user insights to roadmap discussions",
       "evidence": [
         "Research findings killed 3 features, redirected $400k budget",
@@ -172,8 +173,8 @@
         "Tested 3 prototype variants with 15 users each"
       ],
       "outcome": {
-        "metric": "Onboarding completion rate: 68% ’ 89%",
-        "secondary": "Time to first value: 8 minutes ’ 90 seconds"
+        "metric": "Onboarding completion rate: 68% ï¿½ 89%",
+        "secondary": "Time to first value: 8 minutes ï¿½ 90 seconds"
       },
       "proof": {
         "testimonial": {
@@ -231,7 +232,7 @@
       "approach": [
         "Ran accessibility audit with screen reader users, not just automated tools",
         "Documented real user struggles on video, shared with exec team",
-        "Created prioritized backlog: blockers ’ critical ’ enhancements",
+        "Created prioritized backlog: blockers ï¿½ critical ï¿½ enhancements",
         "Embedded accessibility in design process, not post-launch checklist"
       ],
       "outcome": {
@@ -270,7 +271,7 @@
       {
         "name": "Early-Stage Product Discovery",
         "basis": "Love of ambiguity + research skills + rapid prototyping = finding product-market fit",
-        "inPractice": "Best at 0’1 problems where user needs are unclear; interview ’ prototype ’ test cycles",
+        "inPractice": "Best at 0ï¿½1 problems where user needs are unclear; interview ï¿½ prototype ï¿½ test cycles",
         "bestApplied": "Startups exploring new markets; innovation teams; new product initiatives"
       },
       {

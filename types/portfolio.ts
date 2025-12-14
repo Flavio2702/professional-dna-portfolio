@@ -5,6 +5,7 @@ export interface ProfessionalDNA {
     sequencedFrom: { projects: number; skills: number; experiences: number };
     rarityScore: number;
     lastUpdated: string;
+    assessmentConfidence?: 'high' | 'medium' | 'low';
   };
   genomeOverview: {
     tagline: string;
@@ -26,10 +27,12 @@ export interface Chromosome {
 
 export interface Gene {
   name: string;
-  dominance: '=% Dominant' | '¡ Active' | '=¡ Developing';
+  dominance: '=% Dominant' | 'ï¿½ Active' | '=ï¿½ Developing';
   basis: string | null;
   expression: string;
   evidence: string[];
+  behaviorEvidence?: string[]; // Optional: How trait manifests in actions
+  outcomeEvidence?: string[]; // Optional: What the behavior achieved
 }
 
 export interface MutationPoint {

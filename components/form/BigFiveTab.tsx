@@ -1,5 +1,8 @@
+import { useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { validateResponseQuality } from '@/lib/bigfive-validator';
 import questions from '@/data/bigfive-questions.json';
 
 interface BigFiveTabProps {
@@ -16,6 +19,15 @@ const scaleLabels = [
 ];
 
 export function BigFiveTab({ answers, onChange }: BigFiveTabProps) {
+  // Validate response quality in real-time
+  const validation = useMemo(() => {
+    if (Object.keys(answers).length < 10) {
+      // Don't show warnings until at least 10 questions answered
+      return null;
+    }
+    return validateResponseQuality(answers);
+  }, [answers]);
+
   return (
     <div className="space-y-8">
       <div>
@@ -27,6 +39,26 @@ export function BigFiveTab({ answers, onChange }: BigFiveTabProps) {
           = Strongly Agree)
         </p>
       </div>
+
+      {/* Validation Warning Banner */}
+      {validation && validation.warnings.length > 0 && (
+        <Alert variant={validation.confidence === 'low' ? 'destructive' : 'default'}>
+          <AlertDescription className="space-y-2">
+            <p className="font-semibold">
+              {validation.confidence === 'low' && '⚠️ Response Pattern Detected'}
+              {validation.confidence === 'medium' && 'ℹ️ Response Quality Notice'}
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-sm">
+              {validation.warnings.map((warning, idx) => (
+                <li key={idx}>{warning}</li>
+              ))}
+            </ul>
+            <p className="text-xs mt-2 opacity-80">
+              These patterns may affect the accuracy of your results. Consider reviewing your answers for more nuanced responses.
+            </p>
+          </AlertDescription>
+        </Alert>
+      )}
 
       <div className="space-y-6">
         {questions.map((question, index) => (

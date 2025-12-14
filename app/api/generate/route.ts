@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { nanoid } from 'nanoid';
 import { generatePortfolio } from '@/lib/claude';
 import { calculateBigFiveScores } from '@/lib/bigfive-scorer';
+import { validateResponseQuality } from '@/lib/bigfive-validator';
 import { FormData } from '@/types/portfolio';
 
 export const runtime = 'nodejs';
@@ -22,10 +23,20 @@ export async function POST(request: Request) {
     // Calculate Big Five personality scores
     const bigFiveScores = calculateBigFiveScores(formData.bigFive);
 
-    console.log('Generating portfolio with Big Five scores:', bigFiveScores);
+    // Validate response quality and get confidence score
+    const validation = validateResponseQuality(formData.bigFive);
 
-    // Generate portfolio using Claude AI
-    const portfolioData = await generatePortfolio(formData, bigFiveScores);
+    console.log('Generating portfolio with Big Five scores:', bigFiveScores);
+    console.log('Assessment confidence:', validation.confidence);
+    if (validation.warnings.length > 0) {
+      console.log('Validation warnings:', validation.warnings);
+    }
+
+    // Generate portfolio using Claude AI (pass confidence for prompt adjustment)
+    const portfolioData = await generatePortfolio(formData, bigFiveScores, validation.confidence);
+
+    // Add assessment confidence to metadata
+    portfolioData.metadata.assessmentConfidence = validation.confidence;
 
     // Generate unique ID for this portfolio
     const id = nanoid(10);

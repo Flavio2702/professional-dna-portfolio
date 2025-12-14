@@ -8,7 +8,8 @@
       "experiences": 6
     },
     "rarityScore": 87,
-    "lastUpdated": "2025-12-13"
+    "lastUpdated": "2025-12-13",
+    "assessmentConfidence": "high"
   },
   "genomeOverview": {
     "tagline": "I build interfaces that load in milliseconds and scale to millions, preferably while no one's watching.",
@@ -49,7 +50,7 @@
         },
         {
           "name": "Accessibility Engineering",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Conscientiousness: 88/100 + Agreeableness: 72/100",
           "expression": "I test with screen readers not because it's required, but because 15% of users deserve working software. WCAG 2.1 AA is the floor, not the ceiling.",
           "evidence": [
@@ -60,7 +61,7 @@
         },
         {
           "name": "Documentation Systems",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Conscientiousness: 88/100 + Extraversion: 32/100",
           "expression": "I'd rather write docs than explain the same thing twice. My PRs include decision records, my components include usage examples, my APIs include interactive playgrounds.",
           "evidence": [
@@ -99,7 +100,7 @@
         },
         {
           "name": "Process Adherence",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Conscientiousness: 88/100",
           "expression": "I follow checklists religiously. Pre-commit hooks, CI/CD gates, PR templates, release processes - if it's automatable, I've automated it. If not, I've documented it.",
           "evidence": [
@@ -110,7 +111,7 @@
         },
         {
           "name": "Feedback Receptiveness",
-          "dominance": "=ý Developing",
+          "dominance": "=ï¿½ Developing",
           "basis": "Neuroticism: 58/100",
           "expression": "I take code review comments personally even though I know I shouldn't. Working on separating code quality from self-worth. Getting better at saying 'good catch' instead of 'but actually...'",
           "evidence": [
@@ -125,9 +126,9 @@
   "mutations": [
     {
       "year": 2019,
-      "title": "Bootcamp Graduate ’ Production Engineer",
+      "title": "Bootcamp Graduate ï¿½ Production Engineer",
       "description": "Transitioned from self-taught hobbyist to professional engineer through intensive bootcamp.",
-      "mutation": "Imposter syndrome ’ Evidence-based confidence",
+      "mutation": "Imposter syndrome ï¿½ Evidence-based confidence",
       "newTrait": "Learned to let code speak for itself instead of apologizing for background",
       "evidence": [
         "First production deploy: 99.98% uptime over 6 months",
@@ -137,9 +138,9 @@
     },
     {
       "year": 2021,
-      "title": "Feature Factory ’ Performance Team",
+      "title": "Feature Factory ï¿½ Performance Team",
       "description": "Moved from shipping features to optimizing what already exists. Discovered love for benchmarking.",
-      "mutation": "Quantity mindset ’ Quality obsession",
+      "mutation": "Quantity mindset ï¿½ Quality obsession",
       "newTrait": "Started measuring everything; realized fast software is good software",
       "evidence": [
         "Reduced main bundle size by 2.1MB through lazy loading",
@@ -149,9 +150,9 @@
     },
     {
       "year": 2023,
-      "title": "Office ’ Fully Remote",
+      "title": "Office ï¿½ Fully Remote",
       "description": "Company mandated RTO; I quit for fully-remote role. Productivity doubled overnight.",
-      "mutation": "Meeting-driven ’ Deep work optimized",
+      "mutation": "Meeting-driven ï¿½ Deep work optimized",
       "newTrait": "Realized my best code comes from 4-hour focused sessions, not collaboration",
       "evidence": [
         "GitHub contributions: 2800/year remote vs 1200/year office",
@@ -185,7 +186,7 @@
     },
     {
       "geneId": "TypeScript Architecture",
-      "title": "JavaScript ’ TypeScript Migration",
+      "title": "JavaScript ï¿½ TypeScript Migration",
       "context": "120k LOC legacy JavaScript codebase. Production bugs traced to type errors. Team of 30 engineers needed type safety.",
       "approach": [
         "Created incremental migration plan: 10% per sprint over 10 sprints",

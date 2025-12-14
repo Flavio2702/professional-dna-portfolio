@@ -8,7 +8,8 @@
       "experiences": 7
     },
     "rarityScore": 75,
-    "lastUpdated": "2025-12-13"
+    "lastUpdated": "2025-12-13",
+    "assessmentConfidence": "high"
   },
   "genomeOverview": {
     "tagline": "I translate user pain into engineering priorities, business metrics into product strategy, and chaos into roadmaps.",
@@ -29,7 +30,7 @@
           "name": "Product Strategy",
           "dominance": "=% Dominant",
           "basis": "Openness: 62/100 + Conscientiousness: 71/100",
-          "expression": "I define where we're going and why it matters. Vision ’ Strategy ’ Roadmap ’ OKRs. Every feature ladders up to company goals, or it doesn't ship.",
+          "expression": "I define where we're going and why it matters. Vision ï¿½ Strategy ï¿½ Roadmap ï¿½ OKRs. Every feature ladders up to company goals, or it doesn't ship.",
           "evidence": [
             "Defined 3-year product vision adopted by exec team",
             "Restructured roadmap around user outcomes, not feature requests",
@@ -49,7 +50,7 @@
         },
         {
           "name": "Stakeholder Management",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Extraversion: 58/100 + Agreeableness: 64/100",
           "expression": "I translate between disciplines. Explain technical constraints to sales, business goals to engineering, user needs to leadership. Everyone thinks I'm on their side.",
           "evidence": [
@@ -60,7 +61,7 @@
         },
         {
           "name": "Prioritization Frameworks",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Conscientiousness: 71/100",
           "expression": "I say no to good ideas so we can say yes to great ones. RICE scoring, value vs effort matrices, impact mapping - prioritization is my superpower.",
           "evidence": [
@@ -99,7 +100,7 @@
         },
         {
           "name": "Execution Discipline",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Conscientiousness: 71/100",
           "expression": "I run tight standups, track blockers obsessively, and unblock teams fast. Scrum, Kanban, Shape Up - I adapt process to team needs.",
           "evidence": [
@@ -110,7 +111,7 @@
         },
         {
           "name": "Adaptability Under Pressure",
-          "dominance": "ý Active",
+          "dominance": "ï¿½ Active",
           "basis": "Neuroticism: 48/100 + Openness: 62/100",
           "expression": "I stay calm when roadmaps change, priorities shift, or features flop. Startup life is chaos - I find opportunity in uncertainty.",
           "evidence": [
@@ -125,9 +126,9 @@
   "mutations": [
     {
       "year": 2019,
-      "title": "Engineer ’ Product Manager",
+      "title": "Engineer ï¿½ Product Manager",
       "description": "Transitioned from writing code to defining what to build. Traded technical depth for strategic breadth.",
-      "mutation": "Implementation mindset ’ Outcome mindset",
+      "mutation": "Implementation mindset ï¿½ Outcome mindset",
       "newTrait": "Learned to measure success by user impact, not lines of code shipped",
       "evidence": [
         "First PM role: shipping velocity dropped 40% but user satisfaction up 30%",
@@ -137,9 +138,9 @@
     },
     {
       "year": 2021,
-      "title": "Feature Team ’ Platform Team",
+      "title": "Feature Team ï¿½ Platform Team",
       "description": "Moved from shipping user-facing features to building tools for internal teams. Learned to treat employees as customers.",
-      "mutation": "External users ’ Internal users",
+      "mutation": "External users ï¿½ Internal users",
       "newTrait": "Developer experience is user experience; DX problems compound across teams",
       "evidence": [
         "Built internal tool that saved eng team 10hrs/week",
@@ -149,9 +150,9 @@
     },
     {
       "year": 2023,
-      "title": "Reactive PM ’ Strategic PM",
+      "title": "Reactive PM ï¿½ Strategic PM",
       "description": "Stopped accepting roadmap from leadership and started proposing roadmap based on data + user research.",
-      "mutation": "Order-taker ’ Strategy partner",
+      "mutation": "Order-taker ï¿½ Strategy partner",
       "newTrait": "Earned trust by being right about what NOT to build",
       "evidence": [
         "Killed 5 exec-requested features based on user research",
@@ -194,8 +195,8 @@
         "Implemented winner from each test sequentially"
       ],
       "outcome": {
-        "metric": "Activation rate: 35% ’ 58%",
-        "secondary": "Time to activation: 8 days ’ 2 days"
+        "metric": "Activation rate: 35% ï¿½ 58%",
+        "secondary": "Time to activation: 8 days ï¿½ 2 days"
       },
       "proof": {
         "liveLink": "https://dashboard.amplitude.com/activation-analysis"
@@ -208,7 +209,7 @@
       "context": "Sales wanted enterprise features (SSO, RBAC). Existing SMB customers wanted speed + simplicity. Engineering team split between priorities.",
       "approach": [
         "Facilitated roadmap planning session with sales, CS, eng, design",
-        "Created prioritization matrix: Revenue potential × User impact × Effort",
+        "Created prioritization matrix: Revenue potential ï¿½ User impact ï¿½ Effort",
         "Proposed 70/30 split: 70% enterprise (revenue) + 30% SMB (retention)",
         "Documented trade-offs transparently in public Notion page"
       ],
@@ -316,7 +317,7 @@
       {
         "name": "Saying No Without Over-Explaining",
         "basis": "Tend to justify decisions with data; learning brevity and confidence",
-        "myApproach": "'No because...' ’ 'No, and here's what we're prioritizing instead'",
+        "myApproach": "'No because...' ï¿½ 'No, and here's what we're prioritizing instead'",
         "growth": "Reduced PRD length by 40%; learning when more context hurts clarity"
       },
       {
