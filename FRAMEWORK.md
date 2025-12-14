@@ -3,7 +3,7 @@
 ## 1. ASSUNTI BASE
 I portfolio tradizionali sono nati in un'epoca di screening di massa e di ATS rigidi. L'obiettivo era comprimere risultati, parole chiave e grafici accattivanti in un layout facilmente indicizzabile. Oggi questo linguaggio standardizzato si e' trasformato in rumore e non racconta piu' come una persona lavora in ambienti distribuiti.
 
-Il nostro anti-portfolio si fonda quindi su due convinzioni: le persone sono sistemi, non liste, e la trasparenza radicale e' l'unico modo per costruire fiducia. La metafora del DNA descrive pattern, mutazioni e fattori di compatibilita' in modo verificabile. Invece di sovra-promettere, la struttura mette in luce trade-off, limiti e contesti che amplificano o comprimono il contributo. L'obiettivo finale e' fornire materiale autentico su cui fondare conversazioni strategiche, non impressionare con superfici luccicanti.
+Il mio anti-portfolio si fonda quindi su due convinzioni: le persone sono sistemi, non liste, e la trasparenza radicale e' l'unico modo per costruire fiducia. La metafora del DNA descrive pattern, mutazioni e fattori di compatibilita' in modo verificabile invece di sovra-promettere, la struttura mette in luce trade-off, limiti e contesti che amplificano o comprimono il contributo. L'obiettivo finale e' fornire materiale autentico su cui fondare conversazioni strategiche, non impressionare con superfici luccicanti.
 
 ## 2. PATTERN E DOMANDE
 Il framework raccoglie quattro input, ognuno pensato per un layer distinto. Il tab CV ricostruisce la trama professionale e i passaggi critici, non come lista di ruoli ma come spiegazione delle scelte e delle metriche privilegiate. Senza questo contesto storico il resto del DNA perderebbe profondita'.
@@ -61,7 +61,7 @@ Viviamo in un contesto in cui l'AI rende economico creare infinite copie di se s
 
 Il framework inoltre e' pensato per essere rigenerato. Ogni mutazione o gene puo' essere aggiornato quando cambiano obiettivi, e la struttura JSON rende semplice produrre nuove versioni senza perdere la storia. Un anti-portfolio non e' mai finito: vive di iterazioni, proprio come il lavoro che rappresenta.
 
-Guardando avanti immaginiamo un ecosistema in cui agenti specializzati possano interrogare il portfolio per creare playbook, briefing o persino percorsi di coaching personalizzati. Documentare struttura e intenzioni oggi significa abilitare quel futuro: i dati rimangono proprieta' della persona, ma possono essere orchestrati in modo sicuro per generare nuove forme di collaborazione.
+Guardando avanti si può immaginere un ecosistema in cui agenti specializzati possano interrogare il portfolio per creare playbook, briefing o persino percorsi di coaching personalizzati. Documentare struttura e intenzioni oggi significa abilitare quel futuro: i dati rimangono proprieta' della persona, ma possono essere orchestrati in modo sicuro per generare nuove forme di collaborazione.
 
 ---
 
