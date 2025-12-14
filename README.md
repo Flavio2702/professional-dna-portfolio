@@ -282,13 +282,6 @@ vercel --prod
 - [x] ✅ 7 elementi distintivi (DNA metaphor, Big Five, Mutations, Prose-only, Compatibility, Unique Sequence, Gene Expression)
 - [x] ✅ Visione AI-native (Claude editor, iterative portfolio, future ecosystem)
 
-### Optional
-- [ ] ⏳ Video demo (3-5 minuti)
-- [ ] ⏳ Error boundaries
-- [ ] ⏳ Analytics
-
-**Status**: 90% complete. Manca solo deploy Vercel per completare deliverable 2/3.
-
 Stato dettagliato in [PROJECT_STATUS.md](PROJECT_STATUS.md).
 
 ## 📄 Licenza e Copyright
