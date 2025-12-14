@@ -1,6 +1,6 @@
 # Professional DNA Anti-Portfolio 🚀
 
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)](https://nextjs.org) [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8?logo=tailwind-css&logoColor=white)](https://tailwindcss.com) [![Status](https://img.shields.io/badge/Status-Phase%206%20Complete-brightgreen)](PROJECT_STATUS.md)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org) [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38bdf8?logo=tailwind-css&logoColor=white)](https://tailwindcss.com) [![Status](https://img.shields.io/badge/Status-Phase%206.5%20Complete-brightgreen)](PROJECT_STATUS.md)
 
 ## 🧬 Descrizione progetto
 Professional DNA e' un anti-portfolio AI-native che racconta le persone come sistemi complessi invece che come liste di skill. L'interfaccia raccoglie CV, progetti, filosofia di lavoro e firma Big Five per generare - tramite Claude Sonnet 4 - una narrazione radicalmente onesta composta da Genome Overview, Chromosome Map, Mutation Timeline e sezioni focalizzate sull'impatto reale. L'obiettivo e' offrire ai talent team uno strumento affidabile per valutare compatibilita', trade-off e contesti ideali prima ancora del primo colloquio.
@@ -203,8 +203,8 @@ L'API di Anthropic ha limiti di rate. Se generi molti portfolio rapidamente, pot
 - **Big Five Model** - [Wikipedia](https://en.wikipedia.org/wiki/Big_Five_personality_traits)
 
 ## 🧱 Tech stack
-- **Framework**: Next.js 14 (App Router)
-- **UI**: Tailwind CSS + shadcn/ui
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **UI**: Tailwind CSS 4 + shadcn/ui
 - **AI**: Claude Sonnet 4 (Anthropic API)
 - **State/Storage**: Browser `localStorage`, URL params per shareability
 - **Deployment target**: Vercel
