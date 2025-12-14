@@ -291,5 +291,22 @@ vercel --prod
 
 Stato dettagliato in [PROJECT_STATUS.md](PROJECT_STATUS.md).
 
-## 📄 License
-MIT License - aggiungere il file `LICENSE` se non e' ancora presente nel repository.
+## 📄 Licenza e Copyright
+
+**Copyright © 2025 Flavio Neirotti. All Rights Reserved.**
+
+Questo software e la documentazione associata sono proprietà esclusiva del titolare del copyright. Nessuna parte di questo software può essere utilizzata, copiata, modificata, fusa, pubblicata, distribuita, sublicenziata, venduta o altrimenti sfruttata per qualsiasi scopo, commerciale o non commerciale, senza il permesso scritto esplicito del titolare del copyright.
+
+Per informazioni complete sulla licenza, consulta il file [LICENSE](LICENSE).
+
+### Restrizioni d'uso
+- ❌ **Uso commerciale**: Non consentito
+- ❌ **Uso non commerciale**: Non consentito
+- ❌ **Modifica e distribuzione**: Non consentite
+- ✅ **Visualizzazione del codice**: Consentita solo per scopi di valutazione dell'hackathon
+
+### Contatti
+Per richieste di licenza o permessi speciali, contatta il titolare del copyright.
+
+
+
