@@ -36,7 +36,7 @@ export function Section2_ChromosomeMap({ data }: Section2Props) {
           CHROMOSOME MAP
         </h2>
         <p className="text-muted-foreground text-lg">
-          Spacchetto i geni dominanti e quelli in crescita per mostrare come prende forma il mio modo di lavorare.
+          Breaking down dominant and developing genes to show how my operating system actually expresses itself at work.
         </p>
       </div>
 
@@ -70,41 +70,12 @@ export function Section2_ChromosomeMap({ data }: Section2Props) {
                 <CardContent className="space-y-4">
                   {/* Basis */}
                   {gene.basis && (
-                    <div>
-                      <h5 className="text-sm font-semibold text-muted-foreground mb-1">
-                        BASIS
-                      </h5>
-                      <p className="text-sm">{gene.basis}</p>
-                    </div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                      {gene.basis}
+                    </p>
                   )}
 
-                  {/* Expression */}
-                  <div>
-                    <h5 className="text-sm font-semibold text-muted-foreground mb-1">
-                      HOW THIS EXPRESSES
-                    </h5>
-                    <p className="text-sm italic">{gene.expression}</p>
-                  </div>
-
-                  {/* Evidence */}
-                  {gene.evidence && gene.evidence.length > 0 && (
-                    <div>
-                      <h5 className="text-sm font-semibold text-muted-foreground mb-2">
-                        EVIDENCE
-                      </h5>
-                      <ul className="space-y-1">
-                        {gene.evidence.map((evidence, evidenceIndex) => (
-                          <li
-                            key={evidenceIndex}
-                            className="text-sm flex gap-2"
-                          >
-                            <span className="text-primary">"</span>
-                            <span>{evidence}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                  <p className="text-sm text-muted-foreground">{gene.expression}</p>
                 </CardContent>
               </Card>
             ))}

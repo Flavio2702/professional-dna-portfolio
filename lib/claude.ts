@@ -23,9 +23,24 @@ function getModelCandidates(): string[] {
   return Array.from(new Set(candidates));
 }
 
+function getErrorStatus(error: unknown): number | undefined {
+  if (typeof error === 'object' && error !== null) {
+    const { status, statusCode } = error as { status?: number; statusCode?: number };
+    return status ?? statusCode;
+  }
+  return undefined;
+}
+
+function getErrorMessage(error: unknown): string {
+  if (typeof error === 'object' && error !== null && 'message' in error) {
+    return String((error as { message?: unknown }).message);
+  }
+  return String(error);
+}
+
 function isLikelyModelError(error: unknown): boolean {
-  const status = (error as any)?.status ?? (error as any)?.statusCode;
-  const message = String((error as any)?.message ?? error);
+  const status = getErrorStatus(error);
+  const message = getErrorMessage(error);
   return (
     status === 404 ||
     status === 400 ||
@@ -34,7 +49,7 @@ function isLikelyModelError(error: unknown): boolean {
 }
 
 function isInsufficientCreditError(error: unknown): boolean {
-  const message = String((error as any)?.message ?? error).toLowerCase();
+  const message = getErrorMessage(error).toLowerCase();
   return (
     message.includes('credit balance') ||
     message.includes('insufficient funds') ||
@@ -55,7 +70,9 @@ export async function generatePortfolio(
     try {
       const message = await anthropic.messages.create({
         model,
-        max_tokens: 4096,
+        // Output JSON regularly exceeds 4k tokens after compatibility/context additions,
+        // so give Claude extra room to finish the object without truncation.
+        max_tokens: 6000,
         temperature: 0.2,
         messages: [{ role: 'user', content: prompt }],
       });
@@ -167,6 +184,38 @@ Neuroticism: ${bigFiveScores.N}${confidenceWarning}
 4. **basis field is REQUIRED** when a gene relates to personality - use null ONLY for pure technical skills
 5. **Cross-validate with CV/projects**: If score conflicts with evidence, acknowledge the nuance
 
+## MULTI-SOURCE PERSONALITY INFERENCE (Cross-Validation)
+⚠️ **CRITICAL**: Self-reported Big Five scores can diverge from behavioral evidence in CV/projects/philosophy
+
+### Cross-Validation Process
+1. **Analyze CV/Projects for personality signals**:
+   - Solo vs collaborative work patterns → Extraversion indicators
+   - Systematic documentation, process adherence → Conscientiousness indicators
+   - Creative exploration, diverse projects → Openness indicators
+   - Conflict handling, team dynamics → Agreeableness indicators
+   - Handling setbacks, stress responses → Neuroticism indicators
+
+2. **Flag discrepancies** (add to metadata.personalityCalibration.discrepancies):
+   - Example: "Scored Low E (32) but CV shows extensive public speaking, conference talks, team leadership"
+   - Example: "Scored High C (88) but projects show pattern of pivoting mid-stream without completion"
+   - Example: "Scored Low O (35) but philosophy answers show abstract thinking and comfort with ambiguity"
+
+3. **Calibration approach** (choose ONE):
+   - **Trust behavioral evidence**: "While you scored X, your work history suggests Y - using Y for compatibility"
+   - **Acknowledge context**: "Score shows X in general, but work context reveals Y tendency"
+   - **Note social desirability bias**: "Self-assessment may reflect aspirational vs actual behavior"
+
+4. **Metadata field** (REQUIRED if discrepancies found):
+   - Populate metadata.personalityCalibration
+   - crossValidated: true/false
+   - discrepancies: Array of specific conflicts observed
+   - calibrationNotes: How you resolved conflicts (1-2 sentences)
+
+### When NOT to flag discrepancies
+- Minor variations (±10 points) are normal
+- Context-dependent traits (e.g., introverted socially but collaborative at work)
+- Recent mutations (person changed, old CV doesn't reflect current state)
+
 ## ANTI-STEREOTYPE RULES
 1. **Avoid deterministic language**: Never "introverts always...", "highly conscientious people never..."
 2. **Add context qualifiers**: "In deep work contexts...", "When working solo...", "Under deadlines..."
@@ -190,17 +239,28 @@ Identify 2-3 dominant trait combinations and explain synergies:
 - Low A + High O: Willing to challenge norms; strategic disagreement
 
 ## COMPATIBILITY MAPPING RULES
-**Excel**: Environments where trait combination is an advantage
-- Specify context dependencies: "Assumes X, struggles if Y"
-- Identify amplifiers: "Thrives when..."
 
-**Capable**: Trait-neutral or manageable challenge contexts
+### Excel Traits (Unique Strengths)
+- **Context Dependencies** (REQUIRED): Use 'contextDependencies.assumes[]' / 'strugglesIf[]' with concrete statements ("Async-first culture", "Real-time crisis mode")
+- **Environmental Factors** (REQUIRED): Fill 'environmentalFactors' with 'thrivesWhen[]' / 'strugglesWhen[]'; add 'amplifiers' / 'suppressors' when relevant
+
+### Capable Traits (Manageable with Energy Cost)
 - Explain energy cost: "Can do X but requires Y to sustain"
 - Clarify boundaries: "Effective when Z is limited"
+- **Context Dependencies** (REQUIRED): Spell out the assumptions vs breaking points
+- **Environmental Factors**: Include 'thrivesWhen' / 'strugglesWhen' even if short
 
-**Developing**: Trait creates friction or requires active management
-- Frame as integration, not opposition: "Learning to apply High C selectively, not universally"
-- Evidence of growth: Behavior changes while maintaining core trait
+### Developing Traits (Growth Through Integration, Not Replacement)
+?s???? **CRITICAL REFRAME**: Developing ?%? "Fix weakness" or "Become opposite trait"
+- **Integration Goal**: How to apply the trait more skillfully, not change it
+  - High C doesn't become Low C; learns when to loosen perfectionism
+  - Low E doesn't become High E; finds async ways to collaborate
+  - Frame as: "Learning to modulate X in Y contexts" NOT "Overcoming X"
+- **Growth Evidence**: Behavior changes while maintaining core trait
+  - Example: "Still introverted (E:32), but now run async office hours instead of avoiding mentoring"
+  - Example: "Still conscientious (C:88), but learning to ship MVPs without over-engineering"
+- **Integration Goal Field**: REQUIRED - describe the modulation skill being developed
+- **Context Dependencies + Environmental Factors**: Same requirements as Excel/Capable to show "assumes X, struggles when Y"
 
 # OUTPUT RULES
 - Return ONLY valid JSON (no markdown, no code fences, no commentary).
@@ -216,7 +276,13 @@ Identify 2-3 dominant trait combinations and explain synergies:
     "title": "string",
     "sequencedFrom": { "projects": 0, "skills": 0, "experiences": 0 },
     "rarityScore": 0,
-    "lastUpdated": "ISO date string"
+    "lastUpdated": "ISO date string",
+    "assessmentConfidence": "high|medium|low (optional)",
+    "personalityCalibration": {
+      "crossValidated": true,
+      "discrepancies": ["string"],
+      "calibrationNotes": "string"
+    }
   },
   "genomeOverview": {
     "tagline": "string",
@@ -266,9 +332,46 @@ Identify 2-3 dominant trait combinations and explain synergies:
     "evidence": ["string"]
   },
   "compatibility": {
-    "excel": [{ "name": "string", "basis": "string", "inPractice": "string", "bestApplied": "string" }],
-    "capable": [{ "name": "string", "basis": "string", "inPractice": "string", "bestApplied": "string" }],
-    "developing": [{ "name": "string", "basis": "string", "myApproach": "string", "growth": "string" }],
+    "excel": [{
+      "name": "string",
+      "basis": "string",
+      "inPractice": "string",
+      "bestApplied": "string",
+      "contextDependencies": { "assumes": ["string"], "strugglesIf": ["string"] },
+      "environmentalFactors": {
+        "thrivesWhen": ["string"],
+        "strugglesWhen": ["string"],
+        "amplifiers": ["string"],
+        "suppressors": ["string"]
+      }
+    }],
+    "capable": [{
+      "name": "string",
+      "basis": "string",
+      "inPractice": "string",
+      "bestApplied": "string",
+      "contextDependencies": { "assumes": ["string"], "strugglesIf": ["string"] },
+      "environmentalFactors": {
+        "thrivesWhen": ["string"],
+        "strugglesWhen": ["string"],
+        "amplifiers": ["string"],
+        "suppressors": ["string"]
+      }
+    }],
+    "developing": [{
+      "name": "string",
+      "basis": "string",
+      "myApproach": "string",
+      "growth": "string",
+      "integrationGoal": "string",
+      "contextDependencies": { "assumes": ["string"], "strugglesIf": ["string"] },
+      "environmentalFactors": {
+        "thrivesWhen": ["string"],
+        "strugglesWhen": ["string"],
+        "amplifiers": ["string"],
+        "suppressors": ["string"]
+      }
+    }],
     "thrivingEnvironments": [{ "title": "string", "why": "string" }],
     "strugglingEnvironments": [{ "title": "string", "why": "string" }],
     "idealHabitat": "string"

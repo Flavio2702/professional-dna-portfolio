@@ -17,7 +17,7 @@ export function Section3_MutationTimeline({ data }: Section3Props) {
           MUTATION TIMELINE
         </h2>
         <p className="text-muted-foreground text-lg">
-          Le svolte che hanno mutato il mio DNA: esperimenti, scosse e ciò che è rimasto inciso.
+          The inflection points that rewrote my DNA—experiments, shocks, and the lessons that stuck.
         </p>
       </div>
 
@@ -28,7 +28,7 @@ export function Section3_MutationTimeline({ data }: Section3Props) {
 
         {/* Mutations */}
         <div className="space-y-8">
-          {mutations.map((mutation, index) => (
+          {mutations.slice(0, 3).map((mutation, index) => (
             <div key={index} className="relative">
               {/* Timeline dot */}
               <div className="absolute left-6 top-6 w-5 h-5 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border-4 border-background z-10 hidden md:block"></div>
@@ -49,47 +49,22 @@ export function Section3_MutationTimeline({ data }: Section3Props) {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {/* Description */}
-                    <div>
-                      <h5 className="text-sm font-semibold text-muted-foreground mb-2">
-                        WHAT HAPPENED
-                      </h5>
-                      <p className="leading-relaxed">{mutation.description}</p>
-                    </div>
-
-                    {/* Mutation */}
+                    <p className="leading-relaxed text-sm text-muted-foreground">
+                      {mutation.description}
+                    </p>
                     <div className="bg-purple-500/10 border-l-2 border-purple-500 p-4 rounded-r">
                       <h5 className="text-sm font-semibold text-purple-700 dark:text-purple-400 mb-2">
                         DNA MUTATION
                       </h5>
                       <p className="text-sm italic">{mutation.mutation}</p>
                     </div>
-
-                    {/* New Trait */}
-                    <div className="bg-emerald-500/10 border-l-2 border-emerald-500 p-4 rounded-r">
-                      <h5 className="text-sm font-semibold text-emerald-700 dark:text-emerald-400 mb-2">
-                        NEW TRAIT UNLOCKED
-                      </h5>
-                      <p className="text-sm font-medium">{mutation.newTrait}</p>
-                    </div>
-
-                    {/* Evidence */}
+                    <p className="text-sm font-medium text-emerald-700">
+                      New trait unlocked: {mutation.newTrait}
+                    </p>
                     {mutation.evidence && mutation.evidence.length > 0 && (
-                      <div>
-                        <h5 className="text-sm font-semibold text-muted-foreground mb-2">
-                          EVIDENCE
-                        </h5>
-                        <ul className="space-y-1">
-                          {mutation.evidence.map((evidence, evidenceIndex) => (
-                            <li
-                              key={evidenceIndex}
-                              className="text-sm flex gap-2"
-                            >
-                              <span className="text-purple-500">&rarr;</span>
-                              <span>{evidence}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      <p className="text-sm text-primary">
+                        Proof cue: {mutation.evidence[0]}
+                      </p>
                     )}
                   </CardContent>
                 </Card>

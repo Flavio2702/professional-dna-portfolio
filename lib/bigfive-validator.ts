@@ -96,12 +96,6 @@ export function validateResponseQuality(
         const normalMean = normalAnswers.reduce((sum, val) => sum + val, 0) / normalAnswers.length;
         const reverseMean = reverseAnswers.reduce((sum, val) => sum + val, 0) / reverseAnswers.length;
 
-        // Expected: normal items and reverse items should show opposite patterns
-        // If someone scores high on "I am organized" they should score low on "I often leave tasks unfinished"
-        // After reverse scoring, they align, but RAW answers should diverge
-        // High correlation in raw answers = inconsistency
-        const rawCorrelation = Math.abs(normalMean - 3) - Math.abs(reverseMean - 3);
-
         // If both are on the same side of neutral (both > 3 or both < 3), that's suspicious
         if ((normalMean > 3.5 && reverseMean > 3.5) || (normalMean < 2.5 && reverseMean < 2.5)) {
           inconsistentDimensions++;

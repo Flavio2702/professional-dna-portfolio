@@ -22,7 +22,7 @@ export function ProjectsTab({
           GitHub Username (Optional)
         </Label>
         <p className="text-sm text-muted-foreground mt-1 mb-2">
-          We'll analyze your repositories and contributions
+          We&apos;ll analyze your repositories and contributions
         </p>
         <Input
           id="github"

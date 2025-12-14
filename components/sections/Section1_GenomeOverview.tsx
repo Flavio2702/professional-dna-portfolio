@@ -16,36 +16,11 @@ export function Section1_GenomeOverview({ data }: Section1Props) {
           GENOME OVERVIEW
         </h2>
         <p className="text-muted-foreground text-lg">
-          Prima fotografia del mio DNA professionale: cosa porto davvero sul tavolo e perché questa combinazione funziona.
+          First snapshot of my professional DNA—what I actually bring to the table and why this combination works.
         </p>
       </div>
 
-      {/* ASCII DNA Helix */}
-      <Card className="border-2 border-primary">
-        <CardContent className="pt-6">
-          <pre className="text-xs text-center font-mono text-muted-foreground overflow-x-auto">
-            {`
-        D N A
-       /     \\
-      |  ---  |
-     |   ---   |
-    |    ---    |
-   |     ---     |
-  |  PROFESSIONAL |
- |      DNA        |
-  |     HELIX     |
-   |     ---     |
-    |    ---    |
-     |   ---   |
-      |  ---  |
-       \\     /
-        GENOME
-            `}
-          </pre>
-        </CardContent>
-      </Card>
-
-      {/* Header: Name & Title */}
+            {/* Header: Name & Title */}
       <div className="text-center space-y-2">
         <h1 className="text-5xl font-bold tracking-tight">{metadata.name}</h1>
         <p className="text-2xl text-muted-foreground">{metadata.title}</p>
@@ -59,55 +34,6 @@ export function Section1_GenomeOverview({ data }: Section1Props) {
           </p>
         </CardContent>
       </Card>
-
-      {/* Metadata Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Projects Analyzed
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold">{metadata.sequencedFrom.projects}</div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Skills Mapped
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold">{metadata.sequencedFrom.skills}</div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Experiences
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold">{metadata.sequencedFrom.experiences}</div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Rarity Score
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold text-primary">
-              {metadata.rarityScore}/100
-            </div>
-          </CardContent>
-        </Card>
-      </div>
 
       {/* Dominant Traits */}
       <Card>

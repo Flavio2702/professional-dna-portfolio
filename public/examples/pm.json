@@ -156,7 +156,7 @@
       "newTrait": "Earned trust by being right about what NOT to build",
       "evidence": [
         "Killed 5 exec-requested features based on user research",
-        "All 5 would have failed; execs now ask 'What does Jordan think?'",
+        "All 5 would have failed; execs now ask 'What does Jordan think''",
         "Promoted to Senior PM after proving strategic judgment"
       ]
     }
@@ -272,19 +272,103 @@
         "name": "0-to-1 Product Development",
         "basis": "Strategic thinking + user empathy + high tolerance for ambiguity",
         "inPractice": "Thrive when building new products from scratch; love discovery and iteration",
-        "bestApplied": "Early-stage startups; new product initiatives; innovation teams"
+        "bestApplied": "Early-stage startups; new product initiatives; innovation teams",
+        "contextDependencies": {
+          "assumes": [
+            "Founders comfortable with experiments failing",
+            "Team has discovery bandwidth for interviews and data dives"
+          ],
+          "strugglesIf": [
+            "Roadmap locked with fixed scope months ahead",
+            "Leadership cannot stomach pivots when evidence shifts"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can run dual-track discovery and delivery",
+            "We have direct access to customers for rapid feedback"
+          ],
+          "strugglesWhen": [
+            "Executives demand forecasts before data exists",
+            "Budget gets pulled mid-experiment"
+          ],
+          "amplifiers": [
+            "Small empowered squad with design + eng partners",
+            "Rapid prototyping resources already funded"
+          ],
+          "suppressors": [
+            "Bureaucracy gates every release",
+            "Procurement slows tooling for weeks"
+          ]
+        }
       },
       {
         "name": "Cross-Functional Team Leadership",
         "basis": "Balanced personality = can relate to diverse working styles",
         "inPractice": "Bridge gaps between eng (detail-oriented), design (creative), sales (results-driven)",
-        "bestApplied": "Teams with strong individual contributors who need coordination, not micromanagement"
+        "bestApplied": "Teams with strong individual contributors who need coordination, not micromanagement",
+        "contextDependencies": {
+          "assumes": [
+            "Team respects PM as coordinator not command-and-control manager",
+            "Functional leads stay transparent with each other"
+          ],
+          "strugglesIf": [
+            "Org expects top-down directives",
+            "Functions refuse to share context or timelines"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Regular rituals have clear outcomes and owners",
+            "Psychologically safe retros stay on calendar"
+          ],
+          "strugglesWhen": [
+            "Teams reshuffled constantly",
+            "Stakeholders escalate behind each other's backs"
+          ],
+          "amplifiers": [
+            "Shared OKRs align incentives",
+            "Trusted relationships built via periodic offsites"
+          ],
+          "suppressors": [
+            "Quarterly reorg churn",
+            "Shadow agendas override agreed plans"
+          ]
+        }
       },
       {
         "name": "Metrics-Driven Organizations",
         "basis": "Love of data + discipline around measurement",
         "inPractice": "Shine in companies that make decisions based on evidence, not HiPPO opinions",
-        "bestApplied": "Growth-stage startups; data-mature orgs like Stripe, Amplitude, Notion"
+        "bestApplied": "Growth-stage startups; data-mature orgs like Stripe, Amplitude, Notion",
+        "contextDependencies": {
+          "assumes": [
+            "Data infrastructure is accessible to PMs",
+            "Leaders trust experiments over anecdotes"
+          ],
+          "strugglesIf": [
+            "Analytics team is bottleneck",
+            "Metrics weaponized against teams"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can self-serve SQL/Amplitude queries",
+            "We define guardrail metrics up front"
+          ],
+          "strugglesWhen": [
+            "No one knows the source of truth",
+            "KPIs change monthly"
+          ],
+          "amplifiers": [
+            "Dedicated data partner embedded with squad",
+            "Culture celebrates learnings from failed tests"
+          ],
+          "suppressors": [
+            "HiPPO overrides dashboards",
+            "Data privacy restrictions block instrumentation"
+          ]
+        }
       }
     ],
     "capable": [
@@ -292,19 +376,103 @@
         "name": "Mature Enterprise Products",
         "basis": "Can manage complexity but miss the creativity of early-stage",
         "inPractice": "Effective at optimization and scaling, but energized more by innovation",
-        "bestApplied": "Growth phase vs maintenance phase; optimization projects with clear goals"
+        "bestApplied": "Growth phase vs maintenance phase; optimization projects with clear goals",
+        "contextDependencies": {
+          "assumes": [
+            "Roadmap still allows occasional bold bets",
+            "Customer councils provide context beyond contracts"
+          ],
+          "strugglesIf": [
+            "Change reviews require dozens of approvals",
+            "Value measured only in compliance checkboxes"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can run optimization programs with clear hypotheses",
+            "We can sunset low ROI features with evidence"
+          ],
+          "strugglesWhen": [
+            "Backlog filled solely with regulatory work",
+            "Stakeholders fear removing anything legacy"
+          ],
+          "amplifiers": [
+            "Strong product ops handles coordination overhead",
+            "Dedicated enterprise architects partner with PM"
+          ],
+          "suppressors": [
+            "Twelve approvals per change request",
+            "Annual planning is immovable even when data shifts"
+          ]
+        }
       },
       {
         "name": "Technical Product Management",
         "basis": "Engineering background helps but not deeply technical anymore",
         "inPractice": "Can read code, understand architecture, but need eng partner for deep technical decisions",
-        "bestApplied": "Developer tools, APIs, platforms - with strong technical co-founder or lead"
+        "bestApplied": "Developer tools, APIs, platforms - with strong technical co-founder or lead",
+        "contextDependencies": {
+          "assumes": [
+            "Engineering partners open to regular deep dives",
+            "I have time to refresh technical context"
+          ],
+          "strugglesIf": [
+            "Role requires hands-on coding daily",
+            "Stack evolves faster than I can follow"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can spend time with platform engineers each week",
+            "Architecture docs exist and stay current"
+          ],
+          "strugglesWhen": [
+            "Only way to make decisions is reading code myself",
+            "Infra choices hidden from PMs"
+          ],
+          "amplifiers": [
+            "Pairing sessions with staff engineers",
+            "Sandbox environments let me test flows"
+          ],
+          "suppressors": [
+            "Security restrictions block repo access",
+            "Sprints overloaded with infra jargon and no translation"
+          ]
+        }
       },
       {
         "name": "High-Pressure Sales-Driven Culture",
         "basis": "Can handle pressure but prefer balanced approach to product development",
         "inPractice": "Effective at shipping fast when needed, but sustainable pace produces better outcomes",
-        "bestApplied": "Quarterly deadlines over monthly fire drills; strategic over reactive"
+        "bestApplied": "Quarterly deadlines over monthly fire drills; strategic over reactive",
+        "contextDependencies": {
+          "assumes": [
+            "Sales and product align on shared targets",
+            "Fire drills are planned exceptions not default"
+          ],
+          "strugglesIf": [
+            "Quarterly quota overrides every plan",
+            "Roadmap rewritten weekly to chase deals"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can translate revenue goals into product bets",
+            "Post-mortems exist after rush deliveries"
+          ],
+          "strugglesWhen": [
+            "Deals dictate custom features overnight",
+            "Escalations bypass prioritization entirely"
+          ],
+          "amplifiers": [
+            "Revenue ops partner feeds forecast insight",
+            "Clear SLA for sales requests keeps chaos contained"
+          ],
+          "suppressors": [
+            "Executive escalations happen daily in Slack",
+            "Heroics rewarded more than sustainable process"
+          ]
+        }
       }
     ],
     "developing": [
@@ -312,19 +480,106 @@
         "name": "Long-Term Vision (3-5 years)",
         "basis": "Strong at 6-18 month roadmaps; developing multi-year strategic thinking",
         "myApproach": "Reading Gibson Biddle, Shreyas Doshi; working with mentor on vision frameworks",
-        "growth": "Improved from quarterly thinking to annual planning; working toward 3-year vision"
+        "growth": "Improved from quarterly thinking to annual planning; working toward 3-year vision",
+        "contextDependencies": {
+          "assumes": [
+            "Leadership shares market intelligence regularly",
+            "Time carved out for future-state mapping"
+          ],
+          "strugglesIf": [
+            "Constant reactive firefighting",
+            "Strategy documents locked by executives"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I co-create narratives with product marketing",
+            "Scenario planning workshops stay on calendar"
+          ],
+          "strugglesWhen": [
+            "Data beyond 12 months unavailable",
+            "Vision work dismissed as fluff"
+          ],
+          "amplifiers": [
+            "Mentorship from principal PMs",
+            "Access to customer trend reports"
+          ],
+          "suppressors": [
+            "Planning limited to sprint boards",
+            "Exec offsites exclude PM team"
+          ]
+        },
+        "integrationGoal": "Extend my strategic horizon beyond annual roadmaps."
       },
       {
         "name": "Saying No Without Over-Explaining",
         "basis": "Tend to justify decisions with data; learning brevity and confidence",
         "myApproach": "'No because...' � 'No, and here's what we're prioritizing instead'",
-        "growth": "Reduced PRD length by 40%; learning when more context hurts clarity"
+        "growth": "Reduced PRD length by 40%; learning when more context hurts clarity",
+        "contextDependencies": {
+          "assumes": [
+            "Stakeholders accept abbreviated rationale",
+            "Roadmap is transparent for reference"
+          ],
+          "strugglesIf": [
+            "Every no triggers escalation",
+            "I lack authority to enforce prioritization"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Pre-aligned prioritization criteria exist",
+            "Async memos can replace lengthy debates"
+          ],
+          "strugglesWhen": [
+            "Decisions made in hallway chats",
+            "Leaders expect instant yes/no answers without context"
+          ],
+          "amplifiers": [
+            "PMM or sponsor reinforces the message",
+            "Dashboards summarizing trade-offs are visible"
+          ],
+          "suppressors": [
+            "Ambiguous goals make trade-offs fuzzy",
+            "Stakeholders score points by poking holes publicly"
+          ]
+        },
+        "integrationGoal": "Deliver succinct boundaries that still feel empathetic."
       },
       {
         "name": "Design Intuition",
         "basis": "Strong at product logic, still building design taste and craft knowledge",
         "myApproach": "Partner closely with designers; studying great product design; building side projects",
-        "growth": "Can now give useful design feedback; working toward having design point of view"
+        "growth": "Can now give useful design feedback; working toward having design point of view",
+        "contextDependencies": {
+          "assumes": [
+            "Design partners open to teaching craft language",
+            "Time allocated for real design reviews"
+          ],
+          "strugglesIf": [
+            "I am the only PM-designer hybrid available",
+            "Feedback loops completely closed off"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can shadow design critiques weekly",
+            "Side projects give sandbox to experiment with aesthetics"
+          ],
+          "strugglesWhen": [
+            "I'm approving visuals alone",
+            "Deadlines cut critique time entirely"
+          ],
+          "amplifiers": [
+            "Shared design language documentation",
+            "Mentorship from design lead"
+          ],
+          "suppressors": [
+            "Hand-offs happen purely through tickets",
+            "Design team understaffed and heads-down"
+          ]
+        },
+        "integrationGoal": "Pair quantitative instincts with sharper aesthetic judgment."
       }
     ],
     "thrivingEnvironments": [

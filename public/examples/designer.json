@@ -272,19 +272,103 @@
         "name": "Early-Stage Product Discovery",
         "basis": "Love of ambiguity + research skills + rapid prototyping = finding product-market fit",
         "inPractice": "Best at 0�1 problems where user needs are unclear; interview � prototype � test cycles",
-        "bestApplied": "Startups exploring new markets; innovation teams; new product initiatives"
+        "bestApplied": "Startups exploring new markets; innovation teams; new product initiatives",
+        "contextDependencies": {
+          "assumes": [
+            "Company invests in research before locking roadmap",
+            "Cross-functional partners join interviews regularly"
+          ],
+          "strugglesIf": [
+            "Leadership wants immediate hi-fi deliverables",
+            "Roadmap locked before user signals exist"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Weekly interview/prototype loops stay sacred",
+            "PM partners treat qualitative data as source of truth"
+          ],
+          "strugglesWhen": [
+            "Stakeholders demand polished comps before research",
+            "User recruiting gets deprioritized when busy"
+          ],
+          "amplifiers": [
+            "Dedicated research ops or panel access",
+            "Problem framing workshops include engineers"
+          ],
+          "suppressors": [
+            "Sales promises features sight unseen",
+            "Legal/compliance blocks user contact"
+          ]
+        }
       },
       {
         "name": "Cross-Functional Product Teams",
         "basis": "High extraversion + collaboration skills = thrive in messy intersections",
         "inPractice": "Love being embedded with eng/product; daily standups; whiteboard sessions; real-time problem solving",
-        "bestApplied": "Agile teams with co-located or highly synchronous culture"
+        "bestApplied": "Agile teams with co-located or highly synchronous culture",
+        "contextDependencies": {
+          "assumes": [
+            "PM, eng, and design share decision-making",
+            "Meetings allow time for facilitation, not just status"
+          ],
+          "strugglesIf": [
+            "Design invited at the end of process",
+            "Teams operate in silos handing tickets off"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Workshops have clear facilitators and agendas",
+            "Slack channels mix disciplines daily"
+          ],
+          "strugglesWhen": [
+            "Hand-offs happen via JIRA only",
+            "Approvals bottleneck inside hierarchy"
+          ],
+          "amplifiers": [
+            "Co-located design/eng pairing sessions",
+            "Shared rituals like critiques and demos"
+          ],
+          "suppressors": [
+            "Status meetings with 20+ people",
+            "Decision-making by escalation only"
+          ]
+        }
       },
       {
         "name": "User-Centric Organizations",
         "basis": "User advocacy + research skills = shine where user insights drive decisions",
         "inPractice": "Thrive at companies that delay launches for usability; where research budgets are protected",
-        "bestApplied": "User-first cultures like Airbnb, Stripe, Linear"
+        "bestApplied": "User-first cultures like Airbnb, Stripe, Linear",
+        "contextDependencies": {
+          "assumes": [
+            "Company acts on research even when inconvenient",
+            "KPIs include qualitative signals"
+          ],
+          "strugglesIf": [
+            "User data referenced as lip service",
+            "Decisions default to executive intuition"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Leadership joins playback sessions",
+            "Budget exists for longitudinal studies"
+          ],
+          "strugglesWhen": [
+            "Research budgets get cut first",
+            "Teams skip testing to hit sprint dates"
+          ],
+          "amplifiers": [
+            "Dedicated research repository everyone reads",
+            "Customer advisory boards open to design"
+          ],
+          "suppressors": [
+            "Strict NDAs block user contact",
+            "Feature quotas override usability fixes"
+          ]
+        }
       }
     ],
     "capable": [
@@ -292,19 +376,103 @@
         "name": "Solo Design Projects",
         "basis": "Can execute alone but miss the energy of collaboration",
         "inPractice": "Deliver quality work solo, but prefer daily interaction with team",
-        "bestApplied": "Short-term solo projects; independent research initiatives"
+        "bestApplied": "Short-term solo projects; independent research initiatives",
+        "contextDependencies": {
+          "assumes": [
+            "Requirements stay stable through project",
+            "Async collaboration tools are available"
+          ],
+          "strugglesIf": [
+            "Scope changes daily with little notice",
+            "Work requires constant live brainstorm energy"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can block time for deep design work",
+            "Feedback arrives batched vs trickling all day"
+          ],
+          "strugglesWhen": [
+            "Working in isolation for weeks with no checkpoints",
+            "Stakeholders ghost until launch week"
+          ],
+          "amplifiers": [
+            "Regular check-ins with PM buddy",
+            "Recorded Loom updates keep everyone aligned"
+          ],
+          "suppressors": [
+            "Always-on Slack pings during craft time",
+            "Last-minute design drive-bys"
+          ]
+        }
       },
       {
         "name": "High-Fidelity Visual Design",
         "basis": "Strong at UX foundations, good at visual polish, not a visual design specialist",
         "inPractice": "Create clean, functional interfaces; partner with visual designers for brand-heavy work",
-        "bestApplied": "Product design over marketing design; B2B tools over consumer apps"
+        "bestApplied": "Product design over marketing design; B2B tools over consumer apps",
+        "contextDependencies": {
+          "assumes": [
+            "Brand system already defined with tokens",
+            "Access to visual specialists for calibration"
+          ],
+          "strugglesIf": [
+            "Asked to invent brand from scratch under crunch",
+            "Team expects motion/3D wizardry solo"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Partner with visual designers early",
+            "Validate aesthetics with real users"
+          ],
+          "strugglesWhen": [
+            "Decisions devolve into taste wars",
+            "Feedback is purely subjective from execs"
+          ],
+          "amplifiers": [
+            "Component libraries with polished primitives",
+            "Creative reviews with clear criteria"
+          ],
+          "suppressors": [
+            "Design debt requiring nights of pixel pushing",
+            "Pixel perfection demanded overnight"
+          ]
+        }
       },
       {
         "name": "Design Without Research Budget",
         "basis": "Can use guerrilla research methods but miss proper user testing",
         "inPractice": "Run hallway tests, remote unmoderated tests, surveys - but prefer moderated interviews",
-        "bestApplied": "Scrappy environments willing to do 'good enough' research"
+        "bestApplied": "Scrappy environments willing to do 'good enough' research",
+        "contextDependencies": {
+          "assumes": [
+            "Can run scrappy tests with low-cost tools",
+            "Stakeholders accept directional evidence at first"
+          ],
+          "strugglesIf": [
+            "No user access whatsoever",
+            "Decisions rely solely on HiPPO opinions"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Guerrilla tests scheduled weekly",
+            "Appetite for surveys and unmoderated tests"
+          ],
+          "strugglesWhen": [
+            "Compliance shuts down outreach entirely",
+            "Teams treat research as checkbox after build"
+          ],
+          "amplifiers": [
+            "Customer success willing to share call recordings",
+            "Communities ready for quick feedback"
+          ],
+          "suppressors": [
+            "Legal gating every question",
+            "Marketing override to align with campaign narrative"
+          ]
+        }
       }
     ],
     "developing": [
@@ -312,19 +480,106 @@
         "name": "Saying No to Stakeholders",
         "basis": "High agreeableness makes me want to please; struggle with pushback",
         "myApproach": "Learning to lead with data: 'Here's what users said' vs 'I disagree with you'",
-        "growth": "Improved from avoiding conflict to respectfully disagreeing with evidence"
+        "growth": "Improved from avoiding conflict to respectfully disagreeing with evidence",
+        "contextDependencies": {
+          "assumes": [
+            "Stakeholders respect data-backed narratives",
+            "Access to user clips to anchor decisions"
+          ],
+          "strugglesIf": [
+            "Power dynamics stacked so disagreement feels risky",
+            "Decisions made purely top-down"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can prep asynchronously before conflict",
+            "Trade-offs documented in public artifacts"
+          ],
+          "strugglesWhen": [
+            "Surprise escalations demand instant answers",
+            "Feedback framed as loyalty test"
+          ],
+          "amplifiers": [
+            "Mentor/manager backs the no",
+            "Shared metrics to point at"
+          ],
+          "suppressors": [
+            "Leaders reward yes-people",
+            "Roadmaps change without consultation"
+          ]
+        },
+        "integrationGoal": "Channel empathy into firm, evidence-backed boundaries."
       },
       {
         "name": "Design Strategy & Vision",
         "basis": "Strong at tactical execution, developing long-term strategic thinking",
         "myApproach": "Reading strategy books; partnering with senior designers on roadmap planning",
-        "growth": "Moving from 'What should this button do?' to 'Where should the product be in 2 years?'"
+        "growth": "Moving from 'What should this button do?' to 'Where should the product be in 2 years?'",
+        "contextDependencies": {
+          "assumes": [
+            "Insight into company strategy available",
+            "Calendar includes time for blue-sky exploration"
+          ],
+          "strugglesIf": [
+            "Calendar packed with delivery tasks only",
+            "Vision decks dismissed as not actionable"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I collaborate with product leadership on north star",
+            "Workshops scheduled for future-state mapping"
+          ],
+          "strugglesWhen": [
+            "Every request is urgent UI polish",
+            "Strategy conversations happen without design present"
+          ],
+          "amplifiers": [
+            "Research summaries highlighting macro trends",
+            "Mentor guiding narrative storytelling"
+          ],
+          "suppressors": [
+            "Quarterly planning done behind closed doors",
+            "No space for speculative prototypes"
+          ]
+        },
+        "integrationGoal": "Zoom out beyond sprint work to craft multi-quarter product narratives."
       },
       {
         "name": "Managing Up",
         "basis": "Great with peers and reports; still learning how to influence leadership",
         "myApproach": "Working with mentor on exec communication; learning to speak 'business impact' not 'design craft'",
-        "growth": "Started framing design decisions in revenue/retention metrics"
+        "growth": "Started framing design decisions in revenue/retention metrics",
+        "contextDependencies": {
+          "assumes": [
+            "Leaders open to candid design feedback",
+            "I can translate insights into business impact"
+          ],
+          "strugglesIf": [
+            "Updates limited to status emails",
+            "Execs only respond to metrics I do not own"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Recurring 1:1s with decision makers exist",
+            "Decks pair user stories with KPI shifts"
+          ],
+          "strugglesWhen": [
+            "I hear about pivots after decisions",
+            "Exec reviews happen with zero prep time"
+          ],
+          "amplifiers": [
+            "Chief of staff or PM partner helps tailor message",
+            "Shared success metrics bridging design and revenue"
+          ],
+          "suppressors": [
+            "Chain of command filters every message",
+            "Leaders dismiss qualitative insights as anecdotal"
+          ]
+        },
+        "integrationGoal": "Convert empathy and craft wins into executive-level narratives."
       }
     ],
     "thrivingEnvironments": [

@@ -269,19 +269,103 @@
         "name": "Greenfield Performance Projects",
         "basis": "Can architect for speed from day one without legacy constraints",
         "inPractice": "Best work: building new checkout flow from scratch with performance budgets baked in",
-        "bestApplied": "Early-stage products where perf decisions compound; teams that measure Core Web Vitals"
+        "bestApplied": "Early-stage products where perf decisions compound; teams that measure Core Web Vitals",
+        "contextDependencies": {
+          "assumes": [
+            "Performance budgets set before roadmap locks",
+            "Access to production telemetry and profiling tools"
+          ],
+          "strugglesIf": [
+            "Performance considered only after GA",
+            "Legacy monolith is untouchable"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Benchmarks live in definition of done",
+            "Infra partners share real latency data weekly"
+          ],
+          "strugglesWhen": [
+            "Marketing deadlines override refactors",
+            "Fire drills interrupt profiling sessions"
+          ],
+          "amplifiers": [
+            "Deep work sprints dedicated to load testing",
+            "CI gates enforcing Core Web Vitals"
+          ],
+          "suppressors": [
+            "Constant \"just ship it\" escalations",
+            "Staging environments lack parity for perf tests"
+          ]
+        }
       },
       {
         "name": "Async-First Remote Teams",
         "basis": "Low extraversion + high conscientiousness = written communication is superpower",
         "inPractice": "Thrive in GitLab-style handbook cultures; struggle in 'let's hop on a quick call' environments",
-        "bestApplied": "Fully remote orgs with RFC culture, strong docs, and respect for deep work"
+        "bestApplied": "Fully remote orgs with RFC culture, strong docs, and respect for deep work",
+        "contextDependencies": {
+          "assumes": [
+            "Decisions documented asynchronously",
+            "Leaders defend quiet focus blocks"
+          ],
+          "strugglesIf": [
+            "Slack treated like a pager",
+            "Culture equates visibility with meetings"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Calendars include protected focus windows",
+            "Written updates celebrated over live standups"
+          ],
+          "strugglesWhen": [
+            "Return-to-office mandates appear",
+            "Peers expect instant responses all day"
+          ],
+          "amplifiers": [
+            "Handbook-first culture",
+            "Recorded demos replace live status updates"
+          ],
+          "suppressors": [
+            "Open offices or hot desks",
+            "Camera-on meetings scheduled across time zones"
+          ]
+        }
       },
       {
         "name": "TypeScript Migrations",
         "basis": "Combination of technical skill + process discipline + teaching through docs",
         "inPractice": "Successfully led 3 migrations; patience for incremental progress + obsession with type safety",
-        "bestApplied": "Scaling startups moving from JS to TS; need someone who won't burn out team"
+        "bestApplied": "Scaling startups moving from JS to TS; need someone who won't burn out team",
+        "contextDependencies": {
+          "assumes": [
+            "Leadership backs incremental migration plan",
+            "Test coverage exists to catch regressions"
+          ],
+          "strugglesIf": [
+            "Deadlines forbid refactoring time",
+            "Team refuses to fix lint/type errors"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Static analysis is part of CI",
+            "Staff-level sponsor enforces standards"
+          ],
+          "strugglesWhen": [
+            "Shadow scripts bypass the build pipeline",
+            "Mixed JS/TS files stop strict mode adoption"
+          ],
+          "amplifiers": [
+            "Codemods + automated scaffolds ready to run",
+            "Design system already typed"
+          ],
+          "suppressors": [
+            "Manual releases without checks",
+            "Contractors editing production configs"
+          ]
+        }
       }
     ],
     "capable": [
@@ -289,19 +373,103 @@
         "name": "Cross-Functional Collaboration",
         "basis": "Can work with design/product, but drains energy battery quickly",
         "inPractice": "Effective in structured meetings with clear agendas; struggle with open-ended brainstorming",
-        "bestApplied": "Teams with async-first practices; clear swim lanes between roles"
+        "bestApplied": "Teams with async-first practices; clear swim lanes between roles",
+        "contextDependencies": {
+          "assumes": [
+            "Meetings have agendas and owners",
+            "Feedback can continue async afterward"
+          ],
+          "strugglesIf": [
+            "Roomful of stakeholders improvising in real time",
+            "Decision rights unclear"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Written briefs precede working sessions",
+            "Smaller groups respect turn-taking"
+          ],
+          "strugglesWhen": [
+            "Open-ended brainstorming drifts for hours",
+            "Debates rewarded over decisions"
+          ],
+          "amplifiers": [
+            "Dedicated facilitator keeps scope tight",
+            "Shared docs capture action items"
+          ],
+          "suppressors": [
+            "Back-to-back meetings stack with no breaks",
+            "Loudest voice always wins"
+          ]
+        }
       },
       {
         "name": "Mentoring Junior Engineers",
         "basis": "Love teaching through docs/code review, struggle with live pairing",
         "inPractice": "Write detailed PR feedback; maintain onboarding docs; hold office hours vs constant availability",
-        "bestApplied": "Async mentoring; written feedback; recorded demos"
+        "bestApplied": "Async mentoring; written feedback; recorded demos",
+        "contextDependencies": {
+          "assumes": [
+            "Mentees comfortable with written feedback",
+            "Predictable cadence for async office hours"
+          ],
+          "strugglesIf": [
+            "Mentees expect constant live pairing",
+            "Ad-hoc drop-ins break focus blocks"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can batch-review PRs and Loom demos",
+            "Team values written runbooks"
+          ],
+          "strugglesWhen": [
+            "Mentoring equals day-long pairing sessions",
+            "Last-minute pings demand immediate response"
+          ],
+          "amplifiers": [
+            "Documented onboarding paths I can iterate",
+            "Async mentorship programs with forums"
+          ],
+          "suppressors": [
+            "Always-on Slack culture",
+            "Randomized rotation schedules change weekly"
+          ]
+        }
       },
       {
         "name": "Rapid Prototyping",
         "basis": "Can move fast when needed, but quality suffers and I get anxious",
         "inPractice": "Hackathons stress me out; prefer iterative refinement over 'ship and fix later'",
-        "bestApplied": "Projects with clear quality gates; time to refactor; not 'move fast break things' culture"
+        "bestApplied": "Projects with clear quality gates; time to refactor; not 'move fast break things' culture",
+        "contextDependencies": {
+          "assumes": [
+            "Scope defined enough to avoid chaos",
+            "Quality guardrails exist even during sprints"
+          ],
+          "strugglesIf": [
+            "Hackathons expect shipping without review",
+            "Stakeholders change goals mid-day"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Prototype handoff includes time to harden code",
+            "Team allows follow-up refactor window"
+          ],
+          "strugglesWhen": [
+            "Throwaway code becomes production forever",
+            "Shortcuts never repaid"
+          ],
+          "amplifiers": [
+            "Pairing with PM who guards scope",
+            "Feature flags contain risk while iterating"
+          ],
+          "suppressors": [
+            "Ship-it parties that skip QA",
+            "Metrics ignore tech debt entirely"
+          ]
+        }
       }
     ],
     "developing": [
@@ -309,19 +477,106 @@
         "name": "Public Speaking",
         "basis": "Low extraversion + moderate neuroticism = conference talks are terrifying",
         "myApproach": "Gave 2 internal talks (recorded, not live); working up to meetup presentations",
-        "growth": "Goal: Submit to 1 conference in 2025; started with writing blog posts to build confidence"
+        "growth": "Goal: Submit to 1 conference in 2025; started with writing blog posts to build confidence",
+        "contextDependencies": {
+          "assumes": [
+            "Talks can be pre-recorded or tightly scripted",
+            "Audience tolerates deliberate pacing"
+          ],
+          "strugglesIf": [
+            "Event requires me to improvise on stage",
+            "Q&A turns into rapid-fire interruptions"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I rehearse with small trusted groups beforehand",
+            "Sessions allow slides + demos instead of panels"
+          ],
+          "strugglesWhen": [
+            "Emcee adds me to agenda last minute",
+            "Rooms are noisy with zero technical checks"
+          ],
+          "amplifiers": [
+            "Presentation coach giving async notes",
+            "Ability to publish talk as article afterward"
+          ],
+          "suppressors": [
+            "Conference CFPs with one-week prep",
+            "Mandatory live town halls with executives"
+          ]
+        },
+        "integrationGoal": "Translate my async clarity into confident live storytelling without draining core introversion."
       },
       {
         "name": "Handling Ambiguity",
         "basis": "High conscientiousness makes me crave clear requirements; struggle when specs are vague",
         "myApproach": "Learning to ask clarifying questions earlier; building prototypes to explore options",
-        "growth": "Improved from 'blocked waiting for answers' to 'here are 3 options, which direction?'"
+        "growth": "Improved from 'blocked waiting for answers' to 'here are 3 options, which direction?'",
+        "contextDependencies": {
+          "assumes": [
+            "Success criteria clarified before sprint one",
+            "PM partner iterates on specs with me"
+          ],
+          "strugglesIf": [
+            "Tasks drop in with zero context and instant deadlines",
+            "Stakeholders change goals without documentation"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "I can prototype multiple options then converge",
+            "Teams accept written decision trees"
+          ],
+          "strugglesWhen": [
+            "People expect instant answers on undefined work",
+            "Meetings end with \"we will figure it out later\""
+          ],
+          "amplifiers": [
+            "Discovery sprints with clear guardrails",
+            "Access to users for quick feedback loops"
+          ],
+          "suppressors": [
+            "Fire drills replace research time",
+            "Leadership punishes clarifying questions"
+          ]
+        },
+        "integrationGoal": "Keep my conscientious planning while shipping exploratory spikes faster."
       },
       {
         "name": "Work-Life Balance",
         "basis": "Perfectionism + remote work = tendency to over-work and burn out",
         "myApproach": "Set hard stop at 6pm; no Slack on phone; therapy to address all-or-nothing thinking",
-        "growth": "Went from 60hr weeks to 45hr weeks; still working on truly disconnecting"
+        "growth": "Went from 60hr weeks to 45hr weeks; still working on truly disconnecting",
+        "contextDependencies": {
+          "assumes": [
+            "Team respects async boundaries and offline hours",
+            "Deadlines negotiated openly"
+          ],
+          "strugglesIf": [
+            "Pager-duty culture bleeds into evenings",
+            "Leaders praise hero hours"
+          ]
+        },
+        "environmentalFactors": {
+          "thrivesWhen": [
+            "Calendars include no-meeting days",
+            "Workflows allow batching deep work earlier"
+          ],
+          "strugglesWhen": [
+            "Urgent requests land nightly",
+            "Performance reviews glorify always-on behavior"
+          ],
+          "amplifiers": [
+            "Accountability buddies reinforce shutdown routines",
+            "Managers model healthy boundaries"
+          ],
+          "suppressors": [
+            "Chat apps on my phone buzzing 24/7",
+            "Unclear priorities force weekend catch-up"
+          ]
+        },
+        "integrationGoal": "Protect my focus obsession while letting rest and recovery be part of the system."
       }
     ],
     "thrivingEnvironments": [

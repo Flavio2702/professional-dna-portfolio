@@ -6,6 +6,11 @@ export interface ProfessionalDNA {
     rarityScore: number;
     lastUpdated: string;
     assessmentConfidence?: 'high' | 'medium' | 'low';
+    personalityCalibration?: {
+      crossValidated: boolean;
+      discrepancies?: string[]; // Flags if CV/projects contradict self-reported Big Five
+      calibrationNotes?: string;
+    };
   };
   genomeOverview: {
     tagline: string;
@@ -69,6 +74,8 @@ export interface Trait {
   basis: string;
   inPractice: string;
   bestApplied: string;
+  contextDependencies: ContextDependencies;
+  environmentalFactors: EnvironmentalFactors;
 }
 
 export interface DevelopingTrait {
@@ -76,11 +83,26 @@ export interface DevelopingTrait {
   basis: string;
   myApproach: string;
   growth: string;
+  integrationGoal: string; // How to apply trait better, not change it
+  contextDependencies: ContextDependencies;
+  environmentalFactors: EnvironmentalFactors;
 }
 
 export interface Environment {
   title: string;
   why: string;
+}
+
+export interface ContextDependencies {
+  assumes: string[];
+  strugglesIf: string[];
+}
+
+export interface EnvironmentalFactors {
+  thrivesWhen?: string[];
+  strugglesWhen?: string[];
+  amplifiers?: string[];
+  suppressors?: string[];
 }
 
 export interface Compatibility {

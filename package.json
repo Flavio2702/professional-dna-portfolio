@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "build:export-css": "node ./scripts/build-export-css.js"
+    "build:export-css": "node ./scripts/build-export-css.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
